@@ -7,7 +7,7 @@ export default {
     <div class="keep-app-main-page">
         <h1>google keep</h1>
         <add-note/>
-        <note-list :notes="NotesToDisplay"/>
+        <note-list @todo="saveToDo" :notes="NotesToDisplay"/>
     </div>
     `,
     components:{
@@ -22,9 +22,14 @@ export default {
     created() {
         noteService.query().then(notes => this.notes = notes)
     },
+    methods:{
+        saveToDo(noteId,todo){
+            console.log(noteId,todo);
+        }
+    },
     computed:{
         NotesToDisplay(){
             return this.notes
-        }
+        },
     }
 }

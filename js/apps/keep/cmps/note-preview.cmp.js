@@ -11,7 +11,7 @@ export default {
             <img v-if="noteUrl" v-bind:src="noteUrl">
             <ul v-if="noteToDos" v-for="todo in noteToDos">
                 <li>
-                    <p @click="toggleToDo(todo)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
+                    <p @click="toggleToDo(todo,note)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
                     <p v-if="todo.doneAt">Done At: {{todo.doneAt}}</p>
                 </li>
             </ul>
@@ -58,7 +58,8 @@ export default {
                 for(let todo in this.note.info.todos){
                     let txt = this.note.info.todos[todo].txt || null
                     let doneAt = this.note.info.todos[todo].doneAt || null
-                    todoInfo.push({txt, doneAt})
+                    let index = todo
+                    todoInfo.push({txt, doneAt, index})
                 }
                 return todoInfo
             }
@@ -69,10 +70,14 @@ export default {
                 bgColor: this.noteBG,
             }
         },
-        toggleToDo(todo){
-            console.log(todo.doneAt);
-            if(todo.doneAt) todo.doneAt = null
-            else todo.doneAt = Date.now()
+        toggleToDo(todo,note){
+            if(todo.doneAt) {
+                todo.doneAt = null
+            }
+            else {
+                todo.doneAt = Date.now()
+            }
+            this.$emit('todoChange',note.id,todo)
         }
     },
     created(){
