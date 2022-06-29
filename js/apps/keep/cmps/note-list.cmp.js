@@ -25,8 +25,8 @@ export default {
             this.$emit('todo',note,todo)
         },
         remove(noteId) {
-            //this.$emit("removed", bookId);
-            console.log(noteId);
+            this.$emit("remove", noteId);
+            // console.log(noteId);
           },
     },
     computed: {},

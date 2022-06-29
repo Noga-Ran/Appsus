@@ -7,7 +7,7 @@ export default {
     <div class="keep-app-main-page">
         <h1>google keep</h1>
         <add-note @add="saveNewNote"/>
-        <note-list @todo="saveToDo" :notes="NotesToDisplay"/>
+        <note-list @remove="removeNote" @todo="saveToDo" :notes="NotesToDisplay"/>
     </div>
     `,
     components:{
@@ -29,6 +29,12 @@ export default {
         saveNewNote(newNote){
             noteService.addNewNote(newNote)
             this.notes.push(newNote)
+        },
+        removeNote(noteId){
+            noteService.remove(noteId);
+            const idx = this.notes.findIndex((note) => note.id === noteId);
+            this.notes.splice(idx, 1);
+        // eventBus.emit('show-msg', { txt: 'Book has been deleted', type: 'success' });
         }
     },
     computed:{
