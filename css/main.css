@@ -1,0 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    background-color: beige;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(18, 18, 18);
+}
