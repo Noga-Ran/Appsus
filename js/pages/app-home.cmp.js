@@ -18,7 +18,7 @@ export default {
             this.$router.push('/keep')
         },
         goToMail() {
-          this.$router.push('/mail')
+          this.$router.push('/email')
       },
     },
 }

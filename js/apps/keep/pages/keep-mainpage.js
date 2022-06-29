@@ -23,8 +23,8 @@ export default {
         noteService.query().then(notes => this.notes = notes)
     },
     methods:{
-        saveToDo(noteId,todo){
-            console.log(noteId,todo);
+        saveToDo(note,todo){
+            noteService.updateTodo(note, todo)
         }
     },
     computed:{

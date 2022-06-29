@@ -21,9 +21,9 @@ export default {
       return {};
     },
     methods: {
-        updateTodo(noteId,todo){
+        updateTodo(note,todo){
 
-            this.$emit('todo',noteId,todo)
+            this.$emit('todo',note,todo)
         }
     },
     computed: {},

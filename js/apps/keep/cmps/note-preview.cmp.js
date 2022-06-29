@@ -77,7 +77,7 @@ export default {
             else {
                 todo.doneAt = Date.now()
             }
-            this.$emit('todoChange',note.id,todo)
+            this.$emit('todoChange',note,todo)
         }
     },
     created(){

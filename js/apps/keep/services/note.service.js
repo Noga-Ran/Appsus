@@ -8,6 +8,7 @@ export const noteService = {
     query,
     remove,
     get,
+    updateTodo,
     // saveReview,
     // getGoogleBook,
     // getNextBookId,
@@ -23,6 +24,14 @@ function query() {
 //   return bookList
 // }
 
+function updateTodo(note, todoUpdate){
+    let index = todoUpdate.index
+    console.log(note.info.todos[index]);
+
+    note.info.todos[index] = todoUpdate
+    console.log(note.info.todos[index]);
+}
+
 
 function remove(noteId) {
     return storageService.remove(KEEP_NOTE_KEY, noteId)
@@ -31,24 +40,6 @@ function remove(noteId) {
 function get(noteId) {
   return storageService.get(KEEP_NOTE_KEY, noteId)
 }
-
-
-// function saveToStorage(book,r){
-//   if(book.reviews) book.reviews.push(r) 
-//   else {
-//     book.reviews = []
-//     book.reviews.push(r)
-//   }
-//   storageService.put(BOOKS_KEY,book)
-// }
-
-// function getNextBookId(bookId) {
-//   return storageService.query(BOOKS_KEY)
-//       .then(books => {
-//           const idx = books.findIndex(book => book.id === bookId)
-//           return (idx < books.length-1)? books[idx + 1].id : books[0].id
-//       })
-// }
 
 function _createNotes() {
     let notes = storageService.query(KEEP_NOTE_KEY);
@@ -68,8 +59,8 @@ function getNotes(){
             info: {
                 txt: "Fullstack Me Baby!"
             }
-           },
-           {
+        },
+        {
             id: "n102",
             type: "note-img",
             info: {
@@ -79,19 +70,35 @@ function getNotes(){
             style: {
                 backgroundColor: "#00d"
             }
-           },
-           {
+        },
+        {
             id: "n103",
             type: "note-todos",
             info: {
                 label: "Get my stuff together",
-            todos: [
-                { txt: "Driving liscence", doneAt: null },
-                { txt: "Coding power", doneAt: 187111111 }
-            ]
+                todos: [
+                    { txt: "Driving liscence", doneAt: null },
+                    { txt: "Coding power", doneAt: 187111111 }
+                ]
             }
         }
     ];
-
+    
     return notes
 }
+// function saveToStorage(book,r){
+//   if(book.reviews) book.reviews.push(r) 
+//   else {
+//     book.reviews = []
+//     book.reviews.push(r)
+//   }
+//   storageService.put(BOOKS_KEY,book)
+// }
+
+// function getNextBookId(bookId) {
+//   return storageService.query(BOOKS_KEY)
+//       .then(books => {
+//           const idx = books.findIndex(book => book.id === bookId)
+//           return (idx < books.length-1)? books[idx + 1].id : books[0].id
+//       })
+// }
