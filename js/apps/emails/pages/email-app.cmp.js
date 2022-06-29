@@ -16,13 +16,13 @@ export default {
     methods: {
         showEmail(emailId) {
             this.$router.push(`/email/${emailId}`)
-            console.log(emailId,'emailId')
+            console.log(emailId, 'emailId')
         },
         sendEmail(email) {
             emailService.save(email)
                 .then(email => this.emails.push(email))
         },
-    }, 
+    },
     components: {
         emailList,
     },
