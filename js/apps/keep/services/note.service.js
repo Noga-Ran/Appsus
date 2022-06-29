@@ -26,10 +26,9 @@ function query() {
 
 function updateTodo(note, todoUpdate){
     let index = todoUpdate.index
-    console.log(note.info.todos[index]);
-
     note.info.todos[index] = todoUpdate
-    console.log(note.info.todos[index]);
+
+    storageService.put(KEEP_NOTE_KEY, note)
 }
 
 
@@ -42,12 +41,18 @@ function get(noteId) {
 }
 
 function _createNotes() {
-    let notes = storageService.query(KEEP_NOTE_KEY);
-    if (!notes || !notes.length) {
+    storageService.query(KEEP_NOTE_KEY).then(checkNotes)
+}
+
+function checkNotes(notes){
+    console.log(notes)
+    if(!notes || !notes.length){
+        console.log('getting notes',notes, notes.length);
         notes = getNotes()
         storageService._save(KEEP_NOTE_KEY, notes);
+
     }
-    return notes;
+    return notes
 }
 
 function getNotes(){

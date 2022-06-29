@@ -42,8 +42,6 @@ export default {
     methods: {
         NoteEdit(){
             if(!this.userInput) return
-            //console.log(this.userInput, this.isNote, this.isImage, this.isVideo,this.isToDo);
-            //todo: save note, rendere notes
         },
         setBg(){
 
@@ -57,8 +55,9 @@ export default {
                 let todoInfo = []
                 for(let todo in this.note.info.todos){
                     let txt = this.note.info.todos[todo].txt || null
-                    let doneAt = this.note.info.todos[todo].doneAt || null
+                    var doneAt = this.note.info.todos[todo].doneAt || null
                     let index = todo
+                    
                     todoInfo.push({txt, doneAt, index})
                 }
                 return todoInfo
@@ -78,10 +77,14 @@ export default {
                 todo.doneAt = Date.now()
             }
             this.$emit('todoChange',note,todo)
+        },
+        getDateDisplay(timeStamp){
+            return new Date(timeStamp)
         }
     },
     created(){
     },
-    computed: {},
+    computed: {
+    },
   };
   
