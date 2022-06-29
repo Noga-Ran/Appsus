@@ -6,7 +6,7 @@ export default {
     template: `
     <div class="keep-app-main-page">
         <h1>google keep</h1>
-        <add-note/>
+        <add-note @add="saveNewNote"/>
         <note-list @todo="saveToDo" :notes="NotesToDisplay"/>
     </div>
     `,
@@ -25,6 +25,10 @@ export default {
     methods:{
         saveToDo(note,todo){
             noteService.updateTodo(note, todo)
+        },
+        saveNewNote(newNote){
+            noteService.addNewNote(newNote)
+            this.notes.push(newNote)
         }
     },
     computed:{

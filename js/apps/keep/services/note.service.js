@@ -9,6 +9,7 @@ export const noteService = {
     remove,
     get,
     updateTodo,
+    addNewNote,
     // saveReview,
     // getGoogleBook,
     // getNextBookId,
@@ -90,6 +91,10 @@ function getNotes(){
     ];
     
     return notes
+}
+
+function addNewNote(note){
+    storageService.post(KEEP_NOTE_KEY,note)
 }
 // function saveToStorage(book,r){
 //   if(book.reviews) book.reviews.push(r) 
