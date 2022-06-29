@@ -1,0 +1,33 @@
+.email-preview {
+    border-top: 2px solid rgb(197, 189, 189);
+    padding: 0.7rem;
+    cursor: pointer;
+}
+/* .email-preview:last-child{
+    border-bottom: 2px solid rgb(197, 189, 189);
+} */
+.email-preview:hover {
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.email-preview>* {
+    margin-inline-end: 3rem;
+}
+
+.email-preview .sent-at {
+    position: fixed;
+    right: 1rem;
+}
+
+.email-preview .email-to {
+  margin-left: 20px;
+}
+
+.email-preview .email-body{
+    position: fixed;
+    left: 450px;
+}
+.email-preview .email-sub{
+    position: fixed;
+    left: 170px;
+}

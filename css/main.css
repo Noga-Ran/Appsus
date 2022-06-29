@@ -1,1 +1,4 @@
-@import './apps/keep/keep-main-page.css'
+@import './apps/keep/keep-main-page.css';
+
+/* email */
+@import 'apps/emails/cmps/email-preview.css';
