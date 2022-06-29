@@ -1,7 +1,10 @@
 export default {
     template: `
     <section class="home-page">
-        <h3>AppSus</h3>
+        
+    <!-- <router-link to="/books">go to book</router-link>
+    <router-link to="/keep">go to keep</router-link>
+    <router-link to="/mail">go to mail</router-link> -->
 
     </section>
 `,
