@@ -1,0 +1,8 @@
+.keep-app-notes-list-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    grid-auto-rows: auto;
+    background-color:lightblue;
+    padding: 1em;
+}

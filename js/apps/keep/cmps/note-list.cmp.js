@@ -11,6 +11,13 @@ export default {
                <router-link :to="'/books/'+book.id">Details</router-link>
            </div> -->
         </div>
+        <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list">
+           <note-preview :note="note"/>
+           <!-- <div class="keep-app-actions">
+               <button @click="remove(book.id)">X</button>
+               <router-link :to="'/books/'+book.id">Details</router-link>
+           </div> -->
+        </div>
     </section>
   `,
     components: {

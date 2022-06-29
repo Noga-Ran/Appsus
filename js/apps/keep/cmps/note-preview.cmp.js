@@ -7,14 +7,15 @@ export default {
             <!-- <p>id: {{noteId}}</p> -->
             <!-- <p>type: {{noteType}}</p> -->
             <p>ispin: {{noteIsPinned}}</p>
-            <p>info: {{noteInfoTxt}}</p>
+            <p v-if="noteInfoTxt">info: {{noteInfoTxt}}</p>
             <img v-if="noteUrl" v-bind:src="noteUrl">
-            <p>bg: {{noteBG}}</p>
             <ul v-if="noteToDos" v-for="todo in noteToDos">
-                <li v-if="todo.txt">{{todo.txt}}</li>
-                <li v-if="todo.doneAt" >{{todo.doneAt}}</li>
+                <li>
+                    <p @click="toggleToDo(todo)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
+                    <p v-if="todo.doneAt">Done At: {{todo.doneAt}}</p>
+                </li>
             </ul>
-            <p>label: {{noteLabel}}</p>
+            <p v-if="noteLabe">label: {{noteLabel}}</p>
         </div>
         <br><br>
     </section>
@@ -30,7 +31,7 @@ export default {
             noteId: this.note.id,
             noteType: (this.note.type) ?  this.note.type : 'note-txt',
             noteIsPinned: (this.note.noteIsPinned) ? this.note.noteIsPinned : false,
-            noteInfoTxt: (this.note.info.txt) ? this.note.info.txt : 'empty',
+            noteInfoTxt: (this.note.info.txt) ? this.note.info.txt : false,
             noteTitle: (this.note.info.title) ? this.note.info.title : 'no title',
             noteUrl: (this.note.info.url) ? this.note.info.url : false,
             noteBG: this.setBg(),
@@ -67,6 +68,11 @@ export default {
             return {
                 bgColor: this.noteBG,
             }
+        },
+        toggleToDo(todo){
+            console.log(todo.doneAt);
+            if(todo.doneAt) todo.doneAt = null
+            else todo.doneAt = Date.now()
         }
     },
     created(){
