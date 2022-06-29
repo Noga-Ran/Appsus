@@ -5,7 +5,7 @@ export default {
     template: `
    <section class="keep-app-notes-list-container">
        <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list">
-           <note-preview :note="note"/>
+           <note-preview @todoChange="updateTodo" :note="note"/>
            <!-- <div class="keep-app-actions">
                <button @click="remove(book.id)">X</button>
                <router-link :to="'/books/'+book.id">Details</router-link>
@@ -21,7 +21,10 @@ export default {
       return {};
     },
     methods: {
-      
+        updateTodo(note,todo){
+
+            this.$emit('todo',note,todo)
+        }
     },
     computed: {},
   };
