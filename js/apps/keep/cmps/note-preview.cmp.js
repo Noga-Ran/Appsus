@@ -46,6 +46,7 @@ export default {
         setBg(){
 
             if('style' in this.note){
+                console.log(this.note.style);
                 if('backgroundColor' in this.note.style) return this.note.style.backgroundColor
             }
             return '#F7F0F5'

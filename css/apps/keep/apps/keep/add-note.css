@@ -75,3 +75,28 @@
     -webkit-transform: scale(0.95);
     transform: scale(0.95);
   }
+
+.keep-color-pallete-container *{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px black solid;
+  gap: 0.5em;
+}
+
+.keep-green-dot{
+  background-color: #90ee90;
+}
+.keep-pink-dot{
+  background-color: #ffc0cb;
+}
+.keep-lightBlue-dot{
+  background-color: #e0ffff;
+}
+.keep-yellow-dot{
+  background-color: #ffffe0;
+}
+.keep-purple-dot{
+  background-color: #dda0dd;
+}

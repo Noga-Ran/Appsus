@@ -6,8 +6,9 @@ export default {
     template: `
     <div class="keep-app-main-page">
         <h1>google keep</h1>
-        <add-note @add="saveNewNote"/>
-        <note-list @remove="removeNote" @todo="saveToDo" :notes="NotesToDisplay"/>
+        <add-note @add="saveNewNote" :noteEdit="noteToEdit"/>
+        <note-list @remove="removeNote" @todo="saveToDo" @edit="editNote" :notes="NotesToDisplay"/>
+        <!-- <add-note v-if="noteToEdit" :noteEdit="noteToEdit"/> -->
     </div>
     `,
     components:{
@@ -17,6 +18,7 @@ export default {
     data() {
         return {
             notes: null,
+            noteToEdit: null
         }
     },
     created() {
@@ -35,6 +37,10 @@ export default {
             const idx = this.notes.findIndex((note) => note.id === noteId);
             this.notes.splice(idx, 1);
         // eventBus.emit('show-msg', { txt: 'Book has been deleted', type: 'success' });
+        },
+        editNote(note){
+            this.noteToEdit = note
+            console.log(note);
         }
     },
     computed:{

@@ -7,6 +7,8 @@ export default {
        <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list">
            <note-preview @todoChange="updateTodo" :note="note"/>
            <button @click="remove(note.id)">X</button>
+           <button @click="editNote(note)">Edit</button>
+           <!-- <note-preview v-if="editNote" @todoChange="updateTodo" :note="note"/> -->
            <!-- <div class="keep-app-actions">
            </div> -->
         </div>
@@ -17,7 +19,9 @@ export default {
     },
   
     data() {
-      return {};
+      return {
+        
+      };
     },
     methods: {
         updateTodo(note,todo){
@@ -26,8 +30,10 @@ export default {
         },
         remove(noteId) {
             this.$emit("remove", noteId);
-            // console.log(noteId);
-          },
+        },
+        editNote(note){
+            this.$emit('edit',note);
+        }
     },
     computed: {},
   };

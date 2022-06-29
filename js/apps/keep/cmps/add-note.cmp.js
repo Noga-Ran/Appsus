@@ -1,4 +1,5 @@
 export default {
+    props: ['noteToEdit'],
     template: `
     <div class="keep-app-add-note" @click="NoteEdit">
         <input v-if="!isToDo" type="text" v-model="userInput" ref="ph" v-bind:placeholder="placeHolderMsg">
@@ -12,12 +13,20 @@ export default {
 
     <p>{{userInput}}</p>
 
-    <div v-if="isEdit" id="div-modal-tmpl" class="keep-modal-mask">
+    <div v-if="isEdit" id="div-modal-tmpl" class="keep-modal-mask" v-on:click.self="saveNote">
         <div class="keep-modal-wrapper-keep">
-            <div class="keep-modal-container">
-                <div name="header">Header</div>
+            <div class="keep-modal-container" :style="{backgroundColor: noteBgColor}">
+                <input v-model="noteTitle" placeholder="enter note title">
                 <input v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg">
                 <textarea v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
+                <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">pallet</button>
+                <div v-if="openPallete" class="keep-color-pallete-container">
+                    <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
+                    <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
+                    <span @click="noteBgColor='#e0ffff'" class="keep-lightBlue-dot"></span>
+                    <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
+                    <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
+                </div>
                 <button class="keep-cls-modal-close-btn" v-on:click="saveNote">Save</button>
             </div>
         </div>
@@ -34,15 +43,26 @@ export default {
             isToDo:null,
             placeHolderMsg: 'enter a new note',
             isEdit: null,
-            newNoteTxt: null,
-
+            newNoteDetails: null,
+            noteTitle: null,
+            openPallete: false,
+            noteBgColor: '#F7F0F5'
         }
     },
     methods: {
-        saveNote(){
+        saveNote(event){
+            console.log(event);
+            if(!this.userInput) return
             this.isEdit = false
-            this.newNoteTxt = this.userInput
+            this.newNoteDetails = {
+                    txt: this.userInput,
+                    title:this.noteTitle,
+                    style:{backgroundColor:this.noteBgColor}
+                }
             this.userInput = ''
+            this.noteTitle = ''
+            this.noteBgColor = '#F7F0F5'
+            this.openPallete = false
             this.createNote()
         },
         NoteEdit(){
@@ -50,8 +70,6 @@ export default {
                 this.isEdit = true
                 return 
             }
-            //console.log(this.userInput, this.isNote, this.isImage, this.isVideo,this.isToDo);
-            //todo: save note, rendere notes
         },
         createNote(){
             var noteType = (this.isNote) ? 'note-txt' : (this.isImage) ? 'note-img' : (this.isVideo) ? 'note-video' : 'note-todos'
@@ -59,8 +77,11 @@ export default {
                 id: this.makeId(), 
                 type: noteType,
                 isPinned: false,
-                info: 
-                { txt: this.newNoteTxt } 
+                info: {
+                    txt: this.newNoteDetails.txt,
+                    title:this.newNoteDetails.title,
+                },
+                style:{backgroundColor:this.newNoteDetails.style.backgroundColor}
             }
             this.$emit('add',newNote)
         },
@@ -75,6 +96,7 @@ export default {
         }
     },
     created(){
+        console.log(this.noteToEdit,'in edit!!!!!!!')
     },
     computed: {},
   };
