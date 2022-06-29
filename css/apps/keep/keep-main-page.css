@@ -1,0 +1,11 @@
+@import './apps/keep/add-note.css';
+
+.keep-app-main-page *{
+    margin: 0;
+}
+
+/* .keep-app-main-page{
+    height: 100vh;
+    width: 100%;
+    background-color: lightgreen;
+} */

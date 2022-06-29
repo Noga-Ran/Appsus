@@ -1,0 +1,21 @@
+
+.keep-app-add-note{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: lightgreen;
+}
+
+.keep-app-add-note input{
+    width: 60em;
+}
+
+.keep-app-add-note button{
+    width: 3em;
+}
+
+.keep-button-choice{
+    font-weight: bolder;
+}
+
