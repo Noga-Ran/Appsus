@@ -10,7 +10,7 @@ export default {
   `,
     methods: {
         goToBooks() {
-            this.$router.push('/book')
+            this.$router.push('/keep')
         },
     },
 }
