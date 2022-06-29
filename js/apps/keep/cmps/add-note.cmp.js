@@ -25,7 +25,8 @@ export default {
     methods: {
         NoteEdit(){
             if(!this.userInput) return
-            console.log(this.userInput, this.isNote, this.isImage, this.isVideo,this.isToDo);
+            //console.log(this.userInput, this.isNote, this.isImage, this.isVideo,this.isToDo);
+            //todo: save note, rendere notes
         }
     },
     created(){
