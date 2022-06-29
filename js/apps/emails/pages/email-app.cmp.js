@@ -14,11 +14,14 @@ export default {
         }
     },
     methods: {
-        showEmail(email) {
-            this.selectedEmail = email
+        showEmail(emailId) {
+            this.$router.push(`/email/${emailId}`)
+            console.log(emailId, 'emailId')
         },
-    },
-    computed: {
+        sendEmail(email) {
+            emailService.save(email)
+                .then(email => this.emails.push(email))
+        },
     },
     components: {
         emailList,
