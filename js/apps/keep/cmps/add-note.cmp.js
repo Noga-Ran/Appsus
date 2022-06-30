@@ -3,28 +3,32 @@ export default {
     <div class="keep-app-add-note">
         <input @click="isEdit=true" v-if="!isToDo" type="text" v-model="userInput" ref="ph" v-bind:placeholder="placeHolderMsg">
         <textarea @click="isEdit=true" v-else v-bind:placeholder="placeHolderMsg" ref="ph" type="text" v-model="userInput"></textarea>
-        
-        <button @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">N</button>
-        <button @click="isNote = false, isImage=true,isVideo=false,isToDo=false,placeHolderMsg='enter img url'" :class="{'keep-button-choice': isImage}">I</button>
-        <button @click="isNote = false, isImage=false,isVideo=true,isToDo=false,placeHolderMsg='enter video url'" :class="{'keep-button-choice': isVideo}">Y</button>
-        <button @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='to submit todo, press enter'" :class="{'keep-button-choice': isToDo}">TD</button>
+        <span>
+            <button title="add a regular note" @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">📝</button>
+            <button title="add an image note" @click="isNote = false, isImage=true,isVideo=false,isToDo=false,placeHolderMsg='enter img url'" :class="{'keep-button-choice': isImage}">🖼️</button>
+            <button title="add a video note" @click="isNote = false, isImage=false,isVideo=true,isToDo=false,placeHolderMsg='enter link from youtube'" :class="{'keep-button-choice': isVideo}">🎞️</button>
+            <button title="add a todo list" @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='to submit todo, press enter'" :class="{'keep-button-choice': isToDo}">📃</button>
+        </span>
     </div>
     
     <div v-if="isEdit" id="div-modal-tmpl" class="keep-modal-mask" v-on:click.self="saveNote">
         <div class="keep-modal-wrapper-keep">
             <div class="keep-modal-container" :style="{backgroundColor: noteBgColor}">
+                <h3>Enter a New Note</h3>
                 <input v-model="noteTitle" placeholder="enter note title">
                 <input v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg">
                 <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
-                <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">pallet</button>
-                <div v-if="openPallete" class="keep-color-pallete-container">
-                    <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
-                    <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
-                    <span @click="noteBgColor='#e0ffff'" class="keep-lightBlue-dot"></span>
-                    <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
-                    <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
-                </div>
-                <button class="keep-cls-modal-close-btn" v-on:click="saveNote">Save</button>
+                <span>
+                    <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
+                    <button class="keep-cls-modal-close-btn" v-on:click="saveNote">💾</button>
+                    <div v-if="openPallete" class="keep-color-pallete-container">
+                        <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
+                        <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
+                        <span @click="noteBgColor='#e0ffff'" class="keep-lightBlue-dot"></span>
+                        <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
+                        <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
+                    </div>
+                </span>
             </div>
         </div>
     </div>

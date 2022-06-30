@@ -1,7 +1,7 @@
 .keep-note-filter {
     border-bottom: 0.05em solid #171a2116;
     padding: 0 0 1em 0.5em;
-    margin: 1em 0 1em 0;
+    margin-bottom: 1em;
 }
 
 .keep-note-filter *{
@@ -17,4 +17,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-right: 1em;
     border-radius: 5px;
+}
+
+#keep-type-filter:hover{
+    cursor: pointer;
 }

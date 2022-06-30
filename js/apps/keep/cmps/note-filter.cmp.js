@@ -4,12 +4,12 @@ export default {
   
         <span>
           <label for="keep-note-title">Title</label>
-          <input id="keep-note-title" type="text" v-model="filterBy.title" @input="filter">
+          <input title="search note by its title" id="keep-note-title" type="text" v-model="filterBy.title" @input="filter">
         </span>
 
         <span>
           <label for="keep-note-type">Note Type</label>
-          <select id="keep-type-filter" @change="setType($event)">
+          <select title="search note by its type" id="keep-type-filter" @change="setType($event)">
               <option value="" selected disabled hidden>Choose Type</option>
               <option value="note-txt">Text</option>
               <option value="note-img">Image</option>
@@ -17,7 +17,7 @@ export default {
               <option value="note-todos">Todos</option>
           </select>      
         </span>
-        
+
     </section>
     `,
   

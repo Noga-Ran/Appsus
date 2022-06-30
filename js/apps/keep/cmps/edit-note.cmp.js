@@ -10,7 +10,7 @@ export default {
                 <input v-model="noteTitle" placeholder="enter note title">
                 <input v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg">
                 <textarea v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
-                <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">pallet</button>
+                <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
                 <div v-if="openPallete" class="keep-color-pallete-container">
                     <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
                     <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
@@ -18,7 +18,7 @@ export default {
                     <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
                     <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
                 </div>
-                <button class="keep-cls-modal-close-btn" v-on:click="saveNote">Save</button>
+                <button class="keep-cls-modal-close-btn" v-on:click="saveNote">💾</button>
             </div>
         </div>
     </div>

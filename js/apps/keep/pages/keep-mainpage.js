@@ -7,7 +7,6 @@ import noteFilter from '../cmps/note-filter.cmp.js'
 export default {
     template: `
     <div class="keep-app-main-page center-main-keep">
-        <!-- <h1 class="keep-header keep-header-color">miss keep<img src="../../../../images/keep/logo.jpg"></h1> -->
         <span class="keep-header"><img src="../../../../images/keep/logo.jpg"><h1 class="keep-header-color">miss keep</h1></span>
         <note-filter @filtered="filterNote"/>
         <add-note  @add="saveNewNote"/>
