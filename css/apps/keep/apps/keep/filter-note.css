@@ -1,0 +1,16 @@
+.keep-note-filter {
+    text-align: center;
+    border-bottom: 0.05em solid #171a2116;
+    padding-bottom: 0.5em;
+    margin: 1em 0 1em 0;
+}
+
+.keep-note-filter *{
+    padding: 0;
+}
+
+#keep-note-title, #keep-type-filter {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-right: 0.5em;
+    border-radius: 5px;
+}
