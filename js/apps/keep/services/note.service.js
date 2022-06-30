@@ -9,6 +9,8 @@ export const noteService = {
     remove,
     get,
     updateTodo,
+    addNewNote,
+    updateNote,
     // saveReview,
     // getGoogleBook,
     // getNextBookId,
@@ -24,12 +26,15 @@ function query() {
 //   return bookList
 // }
 
+function updateNote(note){
+    storageService.put(KEEP_NOTE_KEY, note)
+}
+
 function updateTodo(note, todoUpdate){
     let index = todoUpdate.index
-    console.log(note.info.todos[index]);
-
     note.info.todos[index] = todoUpdate
-    console.log(note.info.todos[index]);
+
+    storageService.put(KEEP_NOTE_KEY, note)
 }
 
 
@@ -42,12 +47,18 @@ function get(noteId) {
 }
 
 function _createNotes() {
-    let notes = storageService.query(KEEP_NOTE_KEY);
-    if (!notes || !notes.length) {
+    storageService.query(KEEP_NOTE_KEY).then(checkNotes)
+}
+
+function checkNotes(notes){
+    console.log(notes)
+    if(!notes || !notes.length){
+        console.log('getting notes',notes, notes.length);
         notes = getNotes()
         storageService._save(KEEP_NOTE_KEY, notes);
+
     }
-    return notes;
+    return notes
 }
 
 function getNotes(){
@@ -85,6 +96,10 @@ function getNotes(){
     ];
     
     return notes
+}
+
+function addNewNote(note){
+    storageService.post(KEEP_NOTE_KEY,note)
 }
 // function saveToStorage(book,r){
 //   if(book.reviews) book.reviews.push(r) 

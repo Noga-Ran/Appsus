@@ -1,4 +1,12 @@
 .keep-app-list-note {
     margin: 0;
     padding: 0;
+    order: 2;
+}
+
+.keep-app-list-pinned-note{
+    outline: 1px yellow solid;
+    margin: 0;
+    padding: 0;
+    order: -1;
 }
