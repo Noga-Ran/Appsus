@@ -32,10 +32,5 @@ export default {
             return { unread: (!this.email.isRead) }
         },
     },
-    created() {
-
-    },
-    unmounted() {
-
-    },
+  
 }
