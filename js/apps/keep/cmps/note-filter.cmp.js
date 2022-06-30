@@ -2,17 +2,22 @@ export default {
     template: `
     <section class="keep-note-filter">
   
-        <label for="keep-note-title">Title</label>
-        <input id="keep-note-title" type="text" v-model="filterBy.title" @input="filter">
+        <span>
+          <label for="keep-note-title">Title</label>
+          <input id="keep-note-title" type="text" v-model="filterBy.title" @input="filter">
+        </span>
 
-        <label for="keep-note-type">Note Type</label>
-        <select id="keep-type-filter" @change="setType($event)">
-            <option value="" selected disabled hidden>Choose Type</option>
-            <option value="note-txt">Text</option>
-            <option value="note-img">Image</option>
-            <option value="note-video">Video</option>
-            <option value="note-todos">Todos</option>
-        </select>      
+        <span>
+          <label for="keep-note-type">Note Type</label>
+          <select id="keep-type-filter" @change="setType($event)">
+              <option value="" selected disabled hidden>Choose Type</option>
+              <option value="note-txt">Text</option>
+              <option value="note-img">Image</option>
+              <option value="note-video">Video</option>
+              <option value="note-todos">Todos</option>
+          </select>      
+        </span>
+        
     </section>
     `,
   
