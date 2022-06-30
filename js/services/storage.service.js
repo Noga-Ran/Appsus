@@ -45,7 +45,6 @@ function postMany(entityType, newEntities) {
 
 //update an item
 function put(entityType, updatedEntity) {
-    console.log(updatedEntity);
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === updatedEntity.id);

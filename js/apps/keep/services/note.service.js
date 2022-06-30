@@ -10,6 +10,7 @@ export const noteService = {
     get,
     updateTodo,
     addNewNote,
+    updateNote,
     // saveReview,
     // getGoogleBook,
     // getNextBookId,
@@ -24,6 +25,10 @@ function query() {
 //   var bookList =  axios.get(`${GOOGLE_BOOKS}+${googleBook}`)
 //   return bookList
 // }
+
+function updateNote(note){
+    storageService.put(KEEP_NOTE_KEY, note)
+}
 
 function updateTodo(note, todoUpdate){
     let index = todoUpdate.index

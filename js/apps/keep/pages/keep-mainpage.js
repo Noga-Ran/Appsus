@@ -1,19 +1,21 @@
 import { noteService } from "../services/note.service.js";
 import addNote from '../cmps/add-note.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
+import editNote from '../cmps/edit-note.cmp.js'
 
 export default {
     template: `
     <div class="keep-app-main-page">
         <h1>google keep</h1>
-        <add-note @add="saveNewNote" :noteEdit="noteToEdit"/>
-        <note-list @remove="removeNote" @todo="saveToDo" @edit="editNote" :notes="NotesToDisplay"/>
-        <!-- <add-note v-if="noteToEdit" :noteEdit="noteToEdit"/> -->
+        <add-note  @add="saveNewNote"/>
+        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" :notes="notes"/>
+        <edit-note v-if="noteToEdit" @saveEdit="updateNote" :noteEdit="noteToEdit"/>
     </div>
     `,
     components:{
         addNote,
         noteList,
+        editNote,
     },
     data() {
         return {
@@ -38,14 +40,21 @@ export default {
             this.notes.splice(idx, 1);
         // eventBus.emit('show-msg', { txt: 'Book has been deleted', type: 'success' });
         },
-        editNote(note){
+        sendToEdit(note){
             this.noteToEdit = note
-            console.log(note);
-        }
-    },
-    computed:{
-        NotesToDisplay(){
-            return this.notes
         },
-    }
+        updateNote(editNote){
+            const idx = this.notes.findIndex((note) => note.id === editNote.id);
+            this.notes.splice(idx, 1, editNote);
+            noteService.updateNote(editNote)        
+            this.noteToEdit = null
+            // console.log(this.notes,' testing');
+        },
+    },
+    // computed:{
+    //     NotesToDisplay(){
+    //         console.log(this.notes, 'display notes');
+    //         return this.notes
+    //     },
+    // }
 }

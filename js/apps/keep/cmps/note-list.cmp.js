@@ -1,11 +1,11 @@
 import notePreview from './note-preview.cmp.js'
 
 export default {
-    props: ["notes"],
+    props: ['notes'],
     template: `
    <section class="keep-app-notes-list-container">
        <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list">
-           <note-preview @todoChange="updateTodo" :note="note"/>
+           <note-preview @todoChange="updateTodo" :note="note" @edit="editNote(note)"/>
            <button @click="remove(note.id)">X</button>
            <button @click="editNote(note)">Edit</button>
            <!-- <note-preview v-if="editNote" @todoChange="updateTodo" :note="note"/> -->
@@ -36,5 +36,8 @@ export default {
         }
     },
     computed: {},
+    created() {
+        console.log(this.notes,'      !')
+    },
   };
   

@@ -1,9 +1,8 @@
 export default {
-    props: ['noteToEdit'],
     template: `
-    <div class="keep-app-add-note" @click="NoteEdit">
-        <input v-if="!isToDo" type="text" v-model="userInput" ref="ph" v-bind:placeholder="placeHolderMsg">
-        <textarea v-else v-bind:placeholder="placeHolderMsg" ref="ph" type="text" v-model="userInput"></textarea>
+    <div class="keep-app-add-note">
+        <input @click="isEdit=true" v-if="!isToDo" type="text" v-model="userInput" ref="ph" v-bind:placeholder="placeHolderMsg">
+        <textarea @click="isEdit=true" v-else v-bind:placeholder="placeHolderMsg" ref="ph" type="text" v-model="userInput"></textarea>
         
         <button @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">N</button>
         <button @click="isNote = false, isImage=true,isVideo=false,isToDo=false,placeHolderMsg='enter img url'" :class="{'keep-button-choice': isImage}">I</button>
@@ -36,6 +35,7 @@ export default {
   },
     data() {
       return {
+
             userInput: null,
             isNote:true,
             isImage:null,
@@ -50,26 +50,26 @@ export default {
         }
     },
     methods: {
-        saveNote(event){
-            console.log(event);
+        saveNote(){
+            
             if(!this.userInput) return
             this.isEdit = false
+
             this.newNoteDetails = {
-                    txt: this.userInput,
                     title:this.noteTitle,
                     style:{backgroundColor:this.noteBgColor}
                 }
+           
+            if(this.isNote) this.newNoteDetails.txt = this.userInput
+            else if(this.isImage) this.newNoteDetails.url = this.userInput
+            else if(this.isVideo) this.userInput.vUrl = this.userInput
+            else this.userInput.todos = this.userInput
+
             this.userInput = ''
             this.noteTitle = ''
             this.noteBgColor = '#F7F0F5'
             this.openPallete = false
             this.createNote()
-        },
-        NoteEdit(){
-            if(!this.userInput) {
-                this.isEdit = true
-                return 
-            }
         },
         createNote(){
             var noteType = (this.isNote) ? 'note-txt' : (this.isImage) ? 'note-img' : (this.isVideo) ? 'note-video' : 'note-todos'
@@ -78,11 +78,16 @@ export default {
                 type: noteType,
                 isPinned: false,
                 info: {
-                    txt: this.newNoteDetails.txt,
                     title:this.newNoteDetails.title,
                 },
                 style:{backgroundColor:this.newNoteDetails.style.backgroundColor}
             }
+
+            if(this.isNote) newNote.info.txt = this.newNoteDetails.txt
+            else if(this.isImage) newNote.info.url = this.newNoteDetails.url
+            else if(this.isVideo) newNote.info.vUrl = this.newNoteDetails.vUrl
+            else newNote.info.todo = this.newNoteDetails.todos
+
             this.$emit('add',newNote)
         },
         makeId(length = 5) {
@@ -96,7 +101,6 @@ export default {
         }
     },
     created(){
-        console.log(this.noteToEdit,'in edit!!!!!!!')
     },
     computed: {},
   };
