@@ -7,7 +7,7 @@ export default {
         <button @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">N</button>
         <button @click="isNote = false, isImage=true,isVideo=false,isToDo=false,placeHolderMsg='enter img url'" :class="{'keep-button-choice': isImage}">I</button>
         <button @click="isNote = false, isImage=false,isVideo=true,isToDo=false,placeHolderMsg='enter video url'" :class="{'keep-button-choice': isVideo}">Y</button>
-        <button @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='enter new todo list'" :class="{'keep-button-choice': isToDo}">TD</button>
+        <button @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='to submit todo, press enter'" :class="{'keep-button-choice': isToDo}">TD</button>
     </div>
 
     <p>{{userInput}}</p>
@@ -17,7 +17,7 @@ export default {
             <div class="keep-modal-container" :style="{backgroundColor: noteBgColor}">
                 <input v-model="noteTitle" placeholder="enter note title">
                 <input v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg">
-                <textarea v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
+                <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
                 <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">pallet</button>
                 <div v-if="openPallete" class="keep-color-pallete-container">
                     <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
@@ -46,24 +46,24 @@ export default {
             newNoteDetails: null,
             noteTitle: null,
             openPallete: false,
-            noteBgColor: '#F7F0F5'
+            noteBgColor: '#F7F0F5',
+            todosList: [],
         }
     },
     methods: {
         saveNote(){
             
-            if(!this.userInput) return
             this.isEdit = false
 
             this.newNoteDetails = {
-                    title:this.noteTitle,
+                    title:this.noteTitle || 'No Title',
                     style:{backgroundColor:this.noteBgColor}
                 }
            
             if(this.isNote) this.newNoteDetails.txt = this.userInput
             else if(this.isImage) this.newNoteDetails.url = this.userInput
-            else if(this.isVideo) this.userInput.vUrl = this.userInput
-            else this.userInput.todos = this.userInput
+            else if(this.isVideo) this.newNoteDetails.vUrl = this.userInput
+            else this.newNoteDetails.todos = this.todosList
 
             this.userInput = ''
             this.noteTitle = ''
@@ -86,7 +86,7 @@ export default {
             if(this.isNote) newNote.info.txt = this.newNoteDetails.txt
             else if(this.isImage) newNote.info.url = this.newNoteDetails.url
             else if(this.isVideo) newNote.info.vUrl = this.newNoteDetails.vUrl
-            else newNote.info.todo = this.newNoteDetails.todos
+            else newNote.info.todos = this.newNoteDetails.todos
 
             this.$emit('add',newNote)
         },
@@ -98,6 +98,10 @@ export default {
               txt += possible.charAt(Math.floor(Math.random() * possible.length));
             }
             return txt;
+        },
+        addTodo(){
+            this.todosList.push({txt:this.userInput})
+            this.userInput= ''
         }
     },
     created(){

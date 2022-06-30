@@ -1,14 +1,16 @@
-import { noteService } from "../services/note.service.js";
+import { noteService } from "../services/note.service.js"
 import addNote from '../cmps/add-note.cmp.js'
 import noteList from '../cmps/note-list.cmp.js'
 import editNote from '../cmps/edit-note.cmp.js'
+import noteFilter from '../cmps/note-filter.cmp.js'
 
 export default {
     template: `
     <div class="keep-app-main-page">
-        <h1>google keep</h1>
+        <h1>Miss keep</h1>
+        <note-filter @filtered="filterNote"/>
         <add-note  @add="saveNewNote"/>
-        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" :notes="notes"/>
+        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" :notes='notesToDisplay'/>
         <edit-note v-if="noteToEdit" @saveEdit="updateNote" :noteEdit="noteToEdit"/>
     </div>
     `,
@@ -16,15 +18,18 @@ export default {
         addNote,
         noteList,
         editNote,
+        noteFilter,
     },
     data() {
         return {
             notes: null,
-            noteToEdit: null
+            noteToEdit: null,
+            filterBy: null,
         }
     },
     created() {
         noteService.query().then(notes => this.notes = notes)
+        console.log(this.notes,'notes');
     },
     methods:{
         saveToDo(note,todo){
@@ -48,13 +53,32 @@ export default {
             this.notes.splice(idx, 1, editNote);
             noteService.updateNote(editNote)        
             this.noteToEdit = null
-            // console.log(this.notes,' testing');
+        },
+        filterNote(filterBy) {
+            this.filterBy = filterBy;
         },
     },
-    // computed:{
-    //     NotesToDisplay(){
-    //         console.log(this.notes, 'display notes');
-    //         return this.notes
-    //     },
-    // }
+    computed:{
+        notesToDisplay(){
+            if(!this.filterBy || (this.filterBy.type==='' && this.filterBy.title==='')) return this.notes
+    
+            var filterNotes = []
+            console.log(this.filterBy.title,this.filterBy.type);
+            // return this.notes
+
+            if(this.filterBy.title && this.filterBy.title!==''){
+                console.log(this.notes[0],'notes');
+                const regex = new RegExp(this.filterBy.title, "i");
+                filterNotes = this.notes.filter((note) => regex.test(note.info.title))
+            }
+           
+            if(this.filterBy.type && this.filterBy.type!==''){
+                if(filterNotes.length) filterNotes = filterNotes.filter(note => note.type === this.filterBy.type)
+                else if(!this.filterBy.title || this.filterBy.title==='') filterNotes = this.notes.filter(note => note.type === this.filterBy.type)
+            }
+            console.log(filterNotes, 'filtered notes');
+
+            return filterNotes
+        },
+    }
 }

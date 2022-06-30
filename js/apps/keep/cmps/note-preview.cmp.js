@@ -8,7 +8,8 @@ export default {
             <p v-on:click.self="this.$emit('edit')">ispin: {{isPinned()}}</p>
             <p v-on:click.self="this.$emit('edit')" v-if="getNoteTxt()">info: {{getNoteTxt()}}</p>
             <img v-on:click.self="this.$emit('edit')" v-if="getUrl()" :src='getUrl()' alt="img not found">
-            <ul v-if="noteToDos" v-for="todo in getsTodos()">
+            <iframe v-if="getVUrl()" :src='getVUrl()'></iframe>
+            <ul v-if="getsTodos()" v-for="todo in getsTodos()">
                 <li>
                     <p @click="toggleToDo(todo,note)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
                     <p v-if="todo.doneAt">Done At: {{getDateDisplay(todo.doneAt)}}</p>
@@ -49,8 +50,14 @@ export default {
             let url = (this.note.info.url) ? this.note.info.url : false
             return url
         },
+        getVUrl(){
+            var vUrl = this.note.info.vUrl
+            if(vUrl) vUrl = vUrl.replace('/watch?v=', '/embed/')
+            return vUrl
+        },
         getsTodos(){
             if('todos' in this.note.info){
+                console.log(this.note.info.todos,'todoooo');
                 let todoInfo = []
                 for(let todo in this.note.info.todos){
                     let txt = this.note.info.todos[todo].txt || null
