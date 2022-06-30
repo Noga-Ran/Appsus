@@ -9,9 +9,7 @@ export default {
         <button @click="isNote = false, isImage=false,isVideo=true,isToDo=false,placeHolderMsg='enter video url'" :class="{'keep-button-choice': isVideo}">Y</button>
         <button @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='to submit todo, press enter'" :class="{'keep-button-choice': isToDo}">TD</button>
     </div>
-
-    <p>{{userInput}}</p>
-
+    
     <div v-if="isEdit" id="div-modal-tmpl" class="keep-modal-mask" v-on:click.self="saveNote">
         <div class="keep-modal-wrapper-keep">
             <div class="keep-modal-container" :style="{backgroundColor: noteBgColor}">
