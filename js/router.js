@@ -20,8 +20,12 @@ const routes = [
     {
         path: "/email",
         component: emailApp,
-      
+
     },
+    {
+        path: "/email/:emailId",
+        component: emailDetails
+    }
 ]
 
 export const router = VueRouter.createRouter({
