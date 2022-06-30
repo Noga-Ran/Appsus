@@ -1,8 +1,8 @@
 export default {
     props:['note'],
     template: `
-    <section v-if="note" class="keep-app-list-note" v-on:click.self="this.$emit('edit')">
-        <div :style="{backgroundColor: setBg()}">
+    <section v-if="note" v-on:click.self="this.$emit('edit')">
+        <div :style="{backgroundColor: setBg()}" >
             <h3>{{getTitle()}}</h3>
             <!-- <p v-on:click.self="this.$emit('edit')">type: {{noteType}}</p> -->
             <p v-on:click.self="this.$emit('edit')">ispin: {{isPinned()}}</p>
@@ -39,7 +39,7 @@ export default {
             return '#F7F0F5'
         },
         isPinned(){
-            let isPin = (this.note.noteIsPinned) ? true : false
+            let isPin = (this.note.isPinned) ? true : false
             return isPin
         },
         getNoteTxt(){

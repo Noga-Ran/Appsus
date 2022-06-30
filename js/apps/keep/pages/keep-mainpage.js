@@ -10,7 +10,7 @@ export default {
         <h1>Miss keep</h1>
         <note-filter @filtered="filterNote"/>
         <add-note  @add="saveNewNote"/>
-        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" :notes='notesToDisplay'/>
+        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" @togglePin="changeNotePin" :notes='notesToDisplay'/>
         <edit-note v-if="noteToEdit" @saveEdit="updateNote" :noteEdit="noteToEdit"/>
     </div>
     `,
@@ -29,7 +29,6 @@ export default {
     },
     created() {
         noteService.query().then(notes => this.notes = notes)
-        console.log(this.notes,'notes');
     },
     methods:{
         saveToDo(note,todo){
@@ -57,6 +56,11 @@ export default {
         filterNote(filterBy) {
             this.filterBy = filterBy;
         },
+        changeNotePin(note){
+            console.log(note.isPinned)
+            note.isPinned = !note.isPinned
+            console.log(note.isPinned)
+        }
     },
     computed:{
         notesToDisplay(){
