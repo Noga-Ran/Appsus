@@ -20,10 +20,10 @@ export default {
             <button @click.prevent="send">Send</button>
         </form>
     `,
-
+ 
     data() {
         return {
-            user: 'user@appsus.com',
+            user: ' momo@momo.com',
             newEmail: {
                 to: null,
                 subject: null,
@@ -40,5 +40,5 @@ export default {
             this.$emit('newEmail', this.newEmail)
         },
     },
-
+  
 }

@@ -3,9 +3,7 @@
     padding: 0.7rem;
     cursor: pointer;
 }
-/* .email-preview:last-child{
-    border-bottom: 2px solid rgb(197, 189, 189);
-} */
+
 .email-preview:hover {
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
 }
@@ -30,4 +28,23 @@
 .email-preview .email-sub{
     position: fixed;
     left: 170px;
+}
+.side-nav .email-compose {
+    max-width: fit-content;
+    font-size: 1.2rem;
+    border-radius: 1.8rem;
+    padding: 0.8rem;
+    margin-block-end: 0.7rem;
+}
+
+.compose-email {
+    background-color: var(--gray4);
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+}
+
+
+.email-container {
+    flex-basis: 100%;
 }
