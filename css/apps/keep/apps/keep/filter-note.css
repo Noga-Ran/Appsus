@@ -1,4 +1,18 @@
+@media only screen and (max-width: 460px) {
+    
+    .keep-note-filter {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+
+}
+
+/* @media only screen and (min-width: 430px) {
+    
+} */
+
 .keep-note-filter {
+    display: flex;
     border-bottom: 0.05em solid #171a2116;
     padding: 0 0 1em 0.5em;
     margin-bottom: 1em;
@@ -17,6 +31,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-right: 1em;
     border-radius: 5px;
+}
+
+#keep-note-title{
+    width: 50%;
 }
 
 #keep-type-filter:hover{

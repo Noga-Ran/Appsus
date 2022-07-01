@@ -10,7 +10,7 @@ export default {
         <span>
           <label for="keep-note-type">Note Type</label>
           <select title="search note by its type" id="keep-type-filter" @change="setType($event)">
-              <option value="" selected disabled hidden>Choose Type</option>
+              <option value="">Choose Type</option>
               <option value="note-txt">Text</option>
               <option value="note-img">Image</option>
               <option value="note-video">Video</option>

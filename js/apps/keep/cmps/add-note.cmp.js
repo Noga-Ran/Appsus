@@ -18,8 +18,11 @@ export default {
                 <h3>Create New Note</h3>
                 <input v-model="noteTitle" placeholder="enter note title">
                 <textarea v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg"></textarea>
-                <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
-                <span>
+                <div v-else class="keep-add-todo-container">
+                    <textarea v-on:keyup.enter="addTodo" v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
+                    <button @click="addTodo">enter</button>
+                </div>
+                <span :class="{'opstions-buttons-on-todos':isToDo}">
                     <button title="change note color" class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
                     <button title="save note" class="keep-cls-modal-save-btn" v-on:click="saveNote">💾</button>
                 </span>
