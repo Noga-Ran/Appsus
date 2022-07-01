@@ -9,9 +9,11 @@ export default {
        :style="{backgroundColor: setBg(note)}">
 
             <note-preview @todoChange="updateTodo" :note="note" @edit="editNote(note)"/>
-            <button title="delete" @click="remove(note.id)">🗑️</button>
-            <button title="edit" @click="editNote(note)">📝</button>
-            <button :title="getTitle(note)" @click="togglePin(note)">📌</button>
+            <span class="keep-list-note-options">
+                <button title="delete" @click="remove(note.id)">🗑️</button>
+                <button title="edit" @click="editNote(note)">📝</button>
+                <button :title="getTitle(note)" :class="{pinned: note.isPinned,'not-pinned': !note.isPinned}" @click="togglePin(note)">📌</button>
+            </span>
 
         </div>
     </section>
@@ -34,6 +36,7 @@ export default {
             this.$emit("remove", noteId);
         },
         editNote(note){
+            console.log('edit');
             this.$emit('edit',note);
         },
         togglePin(note){

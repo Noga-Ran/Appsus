@@ -10,10 +10,10 @@
     width: 30%
 }
 
-.keep-note-pin{
-    background-color:rgba(0, 128, 0, 0.484);
+.pinned{
+    background-color: rgba(82, 148, 82, 0.45);
 }
 
-.keep-note-not-pin{
-    background-color:rgba(255, 0, 0, 0.446);
+.not-pinned{
+    background-color: rgba(220, 20, 60, 0.450);
 }

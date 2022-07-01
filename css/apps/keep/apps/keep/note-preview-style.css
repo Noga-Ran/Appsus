@@ -21,6 +21,8 @@
 }
 
 .keep-note-info{
+    white-space: normal;
+    overflow-wrap: anywhere;
     word-break: break-all;
     padding: 10px;
     line-height: 1.5;
@@ -28,8 +30,23 @@
     width: 90%;
 }
 
+.keep-app-notes-list h3{
+    margin-bottom: 1em;
+}
+
 .keep-app-notes-list-container img{
     width: 100%;
     padding-bottom: 0.5em;
     border-radius: 1em;
+}
+
+.keep-app-notes-list-container iframe{
+    width: 100%;
+    border-radius: 1em;
+}
+
+.keep-list-note-options{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em
 }

@@ -57,9 +57,8 @@ export default {
             this.filterBy = filterBy;
         },
         changeNotePin(note){
-            console.log(note.isPinned)
             note.isPinned = !note.isPinned
-            console.log(note.isPinned)
+            this.updateNote(note)
         }
     },
     computed:{
