@@ -10,3 +10,7 @@
 html{
     background-color: #EDF2FB;
 }
+@import 'apps/emails/cmps/left-side.css';
+
+/* helpers */
+@import '/css/parts/helpers.css';
