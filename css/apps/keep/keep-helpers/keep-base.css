@@ -1,0 +1,21 @@
+:root {
+    --wb: #EDF2FB;
+    --lb: #E2EAFC;
+    --sb: #C1D3FE;
+    --bb: #B6CCFE;
+    --blu: #ABC4FF;
+    --bgrey: #7D869C;
+    --dtxt: #171A21;
+}
+
+
+@font-face {
+    font-family: faB;
+    src: url('../../../../font-awesome/fa-brands-400.ttf');
+}    
+
+@font-face {
+    font-family: faSo;
+    src: url("../../../../font-awesome/fa-solid-900.ttf");
+}    
+

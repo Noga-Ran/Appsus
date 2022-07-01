@@ -1,0 +1,11 @@
+.brand {
+    font-family: faB;
+}
+
+.so {
+    font-family: faSo;
+}
+
+.brand.f{
+    content: "\f39e";
+}

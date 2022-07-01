@@ -3,10 +3,17 @@
     grid-template-columns: repeat(3,1fr);
     gap: 10px;
     grid-auto-rows: auto;
-    background-color:lightblue;
     padding: 1em;
 }
 
 .keep-app-list-note img{
     width: 30%
+}
+
+.pinned{
+    background-color: rgba(82, 148, 82, 0.45);
+}
+
+.not-pinned{
+    background-color: rgba(220, 20, 60, 0.450);
 }

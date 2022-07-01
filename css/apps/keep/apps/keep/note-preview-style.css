@@ -1,12 +1,52 @@
+.keep-app-notes-list-container > div {
+    border-radius: 5px;
+    height: fit-content;
+}
+
 .keep-app-list-note {
     margin: 0;
     padding: 0;
     order: 2;
 }
 
-.keep-app-list-pinned-note{
-    outline: 1px yellow solid;
-    margin: 0;
-    padding: 0;
+.keep-note-pin{
+    border: 0.1em yellow solid;
+    padding: 1em;
     order: -1;
+}
+
+.keep-note-not-pin{
+    border: 0.1em black solid;
+    padding: 1em;
+}
+
+.keep-note-info{
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-all;
+    padding: 10px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    width: 90%;
+}
+
+.keep-app-notes-list h3{
+    margin-bottom: 1em;
+}
+
+.keep-app-notes-list-container img{
+    width: 100%;
+    padding-bottom: 0.5em;
+    border-radius: 1em;
+}
+
+.keep-app-notes-list-container iframe{
+    width: 100%;
+    border-radius: 1em;
+}
+
+.keep-list-note-options{
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em
 }

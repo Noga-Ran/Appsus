@@ -6,8 +6,8 @@ import noteFilter from '../cmps/note-filter.cmp.js'
 
 export default {
     template: `
-    <div class="keep-app-main-page">
-        <h1>Miss keep</h1>
+    <div class="keep-app-main-page center-main-keep">
+        <span class="keep-header"><img src="../../../../images/keep/logo.jpg"><h1 class="keep-header-color">miss keep</h1></span>
         <note-filter @filtered="filterNote"/>
         <add-note  @add="saveNewNote"/>
         <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" @togglePin="changeNotePin" :notes='notesToDisplay'/>
@@ -57,9 +57,8 @@ export default {
             this.filterBy = filterBy;
         },
         changeNotePin(note){
-            console.log(note.isPinned)
             note.isPinned = !note.isPinned
-            console.log(note.isPinned)
+            this.updateNote(note)
         }
     },
     computed:{
