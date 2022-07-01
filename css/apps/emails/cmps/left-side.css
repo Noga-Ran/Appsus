@@ -1,0 +1,57 @@
+.compose-email {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 700px;
+    height: 700px;
+    box-shadow: 2px 2px 2px 2px rgb(153, 149, 149);
+}
+
+.side-nav .email-compose {
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px rgb(153, 149, 149);
+    border: none;
+    font-size: 18px;
+    border-radius: 35px;
+    padding: 0.6rem;
+    margin-block-end: 1rem;
+    margin-top: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.email-nav-btn {
+    border: none;
+    background-color: white;
+    padding: 0.4rem;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.email-nav-btn:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 0px 30px 30px 0px;
+    color: rgb(189, 16, 16);
+    font-weight: bold;
+}
+.new-msg{
+    background-color: rgba(12, 12, 12, 0.8);
+    color: white;
+    margin: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+input{
+    border:none ;
+    border-bottom: 1px solid rgb(197, 189, 189);
+    flex-basis: 100%;
+}
+.email-prev-actions {
+    padding: 1px;
+}
+

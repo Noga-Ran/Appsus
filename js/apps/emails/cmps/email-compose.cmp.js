@@ -1,7 +1,7 @@
 export default {
     template: `
         <form class="compose-email">
-            <h3>New Message</h3>
+            <h3 class="new-msg">New Message</h3>
             <p>
                 <span>From</span>
                 <span>{{user}}</span>
@@ -20,7 +20,7 @@ export default {
             <button @click.prevent="send">Send</button>
         </form>
     `,
- 
+
     data() {
         return {
             user: ' momo@momo.com',
@@ -40,5 +40,5 @@ export default {
             this.$emit('newEmail', this.newEmail)
         },
     },
-  
+
 }
