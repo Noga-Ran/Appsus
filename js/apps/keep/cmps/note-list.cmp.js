@@ -4,14 +4,15 @@ export default {
     props: ['notes'],
     template: `
    <section class="keep-app-notes-list-container">
-       <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list" :class="{'keep-app-list-note': note.isPinned===false, 'keep-app-list-pinned-note': note.isPinned===true}">
-           <note-preview @todoChange="updateTodo" :note="note" @edit="editNote(note)"/>
-           <button @click="remove(note.id)">X</button>
-           <button @click="editNote(note)">Edit</button>
-           <button @click="togglePin(note)">Pin</button>
-           <!-- <note-preview v-if="editNote" @todoChange="updateTodo" :note="note"/> -->
-           <!-- <div class="keep-app-actions">
-           </div> -->
+       <div v-for="(note) in notes" :key="note.id" class="keep-app-notes-list"
+       :class="{'keep-note-pin': note.isPinned, 'keep-note-not-pin': !note.isPinned}"
+       :style="{backgroundColor: setBg(note)}">
+
+            <note-preview @todoChange="updateTodo" :note="note" @edit="editNote(note)"/>
+            <button title="delete" @click="remove(note.id)">🗑️</button>
+            <button title="edit" @click="editNote(note)">📝</button>
+            <button :title="getTitle(note)" @click="togglePin(note)">📌</button>
+
         </div>
     </section>
   `,
@@ -37,11 +38,26 @@ export default {
         },
         togglePin(note){
             this.$emit('togglePin',note)
-        }
+        },
+        getTitle(note){
+            if('isPinned' in note === undefined) return 'pin'
+            else {
+                if(note.isPinned) return 'unpin'
+                else return 'pin'
+            }
+        },
+        setBg(note){
+            console.log(note);
+            if('style' in note){
+                if('backgroundColor' in note.style) return note.style.backgroundColor
+            }
+            return '#F7F0F5'
+        },
     },
-    computed: {},
+    computed: {
+    },
     created() {
-        console.log(this.notes,'      !')
+       
     },
   };
   

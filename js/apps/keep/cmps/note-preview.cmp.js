@@ -3,11 +3,10 @@ export default {
     template: `
     <section v-if="note" v-on:click.self="this.$emit('edit')">
         <div :style="{backgroundColor: setBg()}" >
+            <img v-on:click.self="this.$emit('edit')" v-if="getUrl()" :src='getUrl()' alt="img not found">
             <h3>{{getTitle()}}</h3>
             <!-- <p v-on:click.self="this.$emit('edit')">type: {{noteType}}</p> -->
-            <p v-on:click.self="this.$emit('edit')">ispin: {{isPinned()}}</p>
-            <p v-on:click.self="this.$emit('edit')" v-if="getNoteTxt()">info: {{getNoteTxt()}}</p>
-            <img v-on:click.self="this.$emit('edit')" v-if="getUrl()" :src='getUrl()' alt="img not found">
+            <p v-on:click.self="this.$emit('edit')" v-if="getNoteTxt()" class="keep-note-info"> {{getNoteTxt()}}</p>
             <iframe v-if="getVUrl()" :src='getVUrl()'></iframe>
             <ul v-if="getsTodos()" v-for="todo in getsTodos()">
                 <li>

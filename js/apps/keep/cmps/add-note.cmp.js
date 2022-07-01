@@ -4,7 +4,7 @@ export default {
         <input @click="isEdit=true" v-if="!isToDo" type="text" v-model="userInput" ref="ph" v-bind:placeholder="placeHolderMsg">
         <textarea @click="isEdit=true" v-else v-bind:placeholder="placeHolderMsg" ref="ph" type="text" v-model="userInput"></textarea>
         <span>
-            <button title="add a regular note" @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">📝</button>
+            <button title="add a regular note" @click="isNote = true, isImage=false,isVideo=false,isToDo=false,placeHolderMsg='enter a new note'" :class="{'keep-button-choice': isNote}">✍🏾</button>
             <button title="add an image note" @click="isNote = false, isImage=true,isVideo=false,isToDo=false,placeHolderMsg='enter img url'" :class="{'keep-button-choice': isImage}">🖼️</button>
             <button title="add a video note" @click="isNote = false, isImage=false,isVideo=true,isToDo=false,placeHolderMsg='enter link from youtube'" :class="{'keep-button-choice': isVideo}">🎞️</button>
             <button title="add a todo list" @click="isNote = false, isImage=false,isVideo=false,isToDo=true,placeHolderMsg='to submit todo, press enter'" :class="{'keep-button-choice': isToDo}">📃</button>

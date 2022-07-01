@@ -2,7 +2,7 @@
 .keep-app-add-note{
   justify-content: center;
   align-items: flex-start;
-  padding: 1em 0 1em 0;
+  padding: 1em 0.5em 1em 0.5em;
   display: flex;
   gap: 1em;
 }
