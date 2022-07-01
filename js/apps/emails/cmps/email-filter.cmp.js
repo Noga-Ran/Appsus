@@ -1,22 +1,27 @@
-
 export default {
     template: `
-   <section class="email-filter">
-      <input type="search" placeholder="Search mail">
-      <select >
-          <option v-for="opt in options" :value="opt">{{opt.replace(opt[0], opt[0].toUpperCase())}}</option>
-      </select>
-   </section>
-  `,
+        <section>
+            <input type="search" v-model="filterBy" @input="search">
+            <label>
+                Date
+                <input type="radio" v-model="sortBy.date" >
+            </label>
+        </section>
+    `,
+
     data() {
-      return {
-        txt: '',
-        options: ['all', 'read', 'unread', 'draft', 'sent', 'starred'],
-      }
+        return {
+            filterBy: null,
+            sortBy: {
+                date: null,
+                title: null,
+            }
+        }
     },
-    created() {},
-    methods: {},
-    computed: {},
-    unmounted() {},
-  }
-  
+    methods: {
+        search() {
+            this.$emit('onSearch', this.filterBy)
+        },
+    },
+ 
+}

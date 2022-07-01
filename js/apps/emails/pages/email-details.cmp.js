@@ -2,22 +2,54 @@ import { emailService } from "../services/email.service.js"
 
 export default {
     template: `
-        <h1>Selected email</h1>
-        <pre>{{email}}</pre>
-        <span>From:</span>
-        <span>Date:</span>
-        
+        <section v-if="email">
+            <pre>{{email}}</pre>
+            <p>
+                <span>From: </span>
+                <span class="email-to">{{from}}</span>
+            </p>
+            <p>
+                <span>Subject: </span>
+                <span class="email-sub">{{email.subject}}</span>
+            </p>
+            <p>
+                <span>Date: </span>
+                <span class="sent-at">{{email.sentAt}}</span>
+            </p>
+            <pre>{{email.body}}</pre>
+        </section>
     `,
     props: [
-        'email'
+       
     ],
     data() {
         return {
-
+            email: null,
         }
     },
     methods: {
-
+           
     },
-
+    computed: {
+        from() {
+            const idx = this.email.to.indexOf('@')
+            return this.email.to.slice(0, idx)
+        },
+    },
+   
+    watch: {
+        '$route.params.emailId': {
+            handler() {
+                const { emailId } = this.$route.params
+                if (!emailId) return 
+                emailService.get(emailId)
+                    .then(email => {
+                        this.email = email
+                        email.isRead = true
+                        emailService.save(email)
+                    })
+            },
+            immediate: true,
+        }
+    },
 }

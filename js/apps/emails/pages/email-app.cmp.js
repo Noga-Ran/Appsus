@@ -1,28 +1,31 @@
 import { emailService } from "../services/email.service.js"
 import emailList from "../cmps/email-list.cmp.js"
-import folderList from "../cmps/email-folder-list.js"
+import folderList from "../cmps/email-folder-list.cmp.js"
 import emailFilter from "../cmps/email-filter.cmp.js"
 
 export default {
     template: `
-     <header>
-            <email-filter @onSearch="email-filter"/>
+        <header>
+            <email-filter @onSearch="filter"/>
         </header>
-        <section>
-            <email-list @selected="showEmail" :emails="emails"/>
+        <section class="flex" >
+            <folder-list @sort="sortStateEmails" @send="sendEmail"/>
+            <email-list @selected="showEmail" 
+                @delete="deleteEmail" :emails="emailsToShow"
+            />
         </section>
     `,
     data() {
         return {
-            emails: emailService.query(),
-            selectedEmail: null,
+            emails: null,
+            sortState: 'all',
+            sortBy: null,
             filterBy: null,
         }
     },
     methods: {
         showEmail(emailId) {
             this.$router.push(`/email/${emailId}`)
-            console.log(emailId, 'emailId')
         },
         sendEmail(email) {
             emailService.save(email)
@@ -33,12 +36,32 @@ export default {
             const idx = this.emails.findIndex(email => email.id === emailId)
             this.emails.splice(idx, 1)
         },
+        sortStateEmails(type) {
+            this.sortState = type
+        },
         filter(txt) {
             this.filterBy = txt
         },
     },
-   
-
+    computed: {
+        emailsToShow() {
+            if (this.filterBy) {
+                return this.emails.filter(email => {
+                    email.subject.includes(this.filterBy)
+                })
+            }
+            if (this.sortState === 'all') return this.emails
+            if (this.sortState === 'unread') {
+                return this.emails.filter(email => !email.isRead)
+            }
+            return this.emails.filter(email => email.state === this.sortState)
+        },
+    },
+    created() {
+        emailService.query()
+            .then(emails => this.emails = emails)
+    },
+    
     components: {
         emailList,
         folderList,

@@ -1,9 +1,9 @@
 import emailCompose from "./email-compose.cmp.js"
-import emailSort from "./email-sort.cmp.js"
+import emailSideSort from "./email-side-sort.cmp.js"
 
 export default {
     template: `
-        <section class="side-nav">
+        <section class="side-nav flex column">
             <button class="email-compose" 
                 @click="composeMode">
                 +Compose
@@ -12,7 +12,7 @@ export default {
         </section>
 
         <section v-if="compose" >
-            <email-compose @newEmail="sendEmail"/>
+            <email-compose @newEmail="sendNewEmail"/>
         </section>
     `,
     data() {
@@ -22,10 +22,7 @@ export default {
         }
     },
     methods: {
-        showEmail(emailId) {
-            this.$router.push(`/email/${emailId}`)
-        },
-        sendEmail(newEmail) {
+        sendNewEmail(newEmail) {
             this.$emit('send', newEmail)
             this.compose = !this.compose
         },
@@ -36,12 +33,13 @@ export default {
             this.$emit('sort', type)
         },
     },
+
     emits: [
         'send',
         'sort',
     ],
     components: {
         emailCompose,
-        emailSort
+        emailSideSort,
     },
 }
