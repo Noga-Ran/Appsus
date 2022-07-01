@@ -1,14 +1,30 @@
 
+
+@media only screen and (max-width: 430px) {
+  .keep-app-add-note{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .keep-app-add-note input{
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 430px) {
+  .keep-app-add-note{
+    align-items: flex-start;
+  }
+
+  .keep-app-add-note input{
+    width: 60em;
+  }
+}
+
 .keep-app-add-note{
   justify-content: center;
-  align-items: flex-start;
   padding: 1em 0.5em 1em 0.5em;
   display: flex;
   gap: 1em;
-}
-
-.keep-app-add-note input{
-  width: 60em;
 }
 
 .keep-app-add-note span{
@@ -116,6 +132,29 @@
   -webkit-transform: scale(0.95);
   transform: scale(0.95);
 }
+
+.keep-add-todo-container{
+  display:inline-block;
+  position:relative;
+  box-sizing: border-box;
+}
+
+.keep-add-todo-container button{
+  position: absolute;
+  bottom: -0.9995em;
+  margin: 0 0 0.1em 0.1em;
+}
+
+.keep-add-todo-container textarea{
+  width: 100%;
+  display:block;
+}
+
+.opstions-buttons-on-todos{
+  height: inherit;
+}
+
+/* model colors */
 
 .keep-color-pallete-container{
   display: flex;

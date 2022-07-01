@@ -2,10 +2,9 @@ export default {
     props:['note'],
     template: `
     <section v-if="note" v-on:click.self="this.$emit('edit')">
-        <div :style="{backgroundColor: setBg()}" >
+        <div v-on:click.self="this.$emit('edit')" :style="{backgroundColor: setBg()}" >
             <img v-on:click.self="this.$emit('edit')" v-if="getUrl()" :src='getUrl()' alt="img not found">
-            <h3>{{getTitle()}}</h3>
-            <!-- <p v-on:click.self="this.$emit('edit')">type: {{noteType}}</p> -->
+            <h3 v-on:click.self="this.$emit('edit')">{{getTitle()}}</h3>
             <p v-on:click.self="this.$emit('edit')" v-if="getNoteTxt()" class="keep-note-info"> {{getNoteTxt()}}</p>
             <iframe v-if="getVUrl()" :src='getVUrl()'></iframe>
             <ul v-if="getsTodos()" v-for="todo in getsTodos()">
