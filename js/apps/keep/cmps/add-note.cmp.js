@@ -12,23 +12,24 @@ export default {
     </div>
     
     <div v-if="isEdit" id="div-modal-tmpl" class="keep-modal-mask" v-on:click.self="saveNote">
-        <div class="keep-modal-wrapper-keep">
+        <div class="keep-modal-wrapper-keep" v-on:click.self="saveNote">
             <div class="keep-modal-container" :style="{backgroundColor: noteBgColor}">
-                <h3>Enter a New Note</h3>
+                <button title="close" class="keep-modal-cancel-btn" v-on:click="saveNote(false)">🗙</button>
+                <h3>Create New Note</h3>
                 <input v-model="noteTitle" placeholder="enter note title">
-                <input v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg">
+                <textarea v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg"></textarea>
                 <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
                 <span>
-                    <button class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
-                    <button class="keep-cls-modal-close-btn" v-on:click="saveNote">💾</button>
-                    <div v-if="openPallete" class="keep-color-pallete-container">
-                        <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
-                        <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
-                        <span @click="noteBgColor='#e0ffff'" class="keep-lightBlue-dot"></span>
-                        <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
-                        <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
-                    </div>
+                    <button title="change note color" class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
+                    <button title="save note" class="keep-cls-modal-save-btn" v-on:click="saveNote">💾</button>
                 </span>
+                <div v-if="openPallete" class="keep-color-pallete-container">
+                    <span @click="noteBgColor='#90ee90'" class="keep-green-dot"></span>
+                    <span @click="noteBgColor='#ffc0cb'" class="keep-pink-dot"></span>
+                    <span @click="noteBgColor='#e0ffff'" class="keep-lightBlue-dot"></span>
+                    <span @click="noteBgColor='#ffffe0'" class="keep-yellow-dot"></span>
+                    <span @click="noteBgColor='#dda0dd'"class="keep-purple-dot"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -53,7 +54,7 @@ export default {
         }
     },
     methods: {
-        saveNote(){
+        saveNote(isSave=true){
             
             this.isEdit = false
 
@@ -71,7 +72,7 @@ export default {
             this.noteTitle = ''
             this.noteBgColor = '#F7F0F5'
             this.openPallete = false
-            this.createNote()
+            if(isSave) this.createNote()
         },
         createNote(){
             var noteType = (this.isNote) ? 'note-txt' : (this.isImage) ? 'note-img' : (this.isVideo) ? 'note-video' : 'note-todos'
