@@ -1,4 +1,12 @@
+@import './apps/main-app/app-header-style.css';
+@import './apps/main-app/app-footer-style.css';
+@import './apps/main-app/app-about-style.css';
+
 @import './apps/keep/keep-main-page.css';
 
 /* email */
 @import 'apps/emails/cmps/email-preview.css';
+
+html{
+    background-color: #EDF2FB;
+}

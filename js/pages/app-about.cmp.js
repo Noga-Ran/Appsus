@@ -1,7 +1,22 @@
 export default {
     template: `
     <section class="main-about">
-        <h3>about</h3>
+        <h1>about our team!</h1>
+
+        <span>
+            <span>
+                <img src="../../images/about/noga.jpg" alt="">
+                <h3>Noga Ran</h3>
+                <p>Bear claw sweet marshmallow jelly beans wafer muffin lemon drops danish. Jelly beans danish sweet gummi bears croissant sweet roll fruitcake cake toffee. Donut candy wafer liquorice tiramisu jelly beans chocolate bar chupa chups. Jelly-o liquorice candy gingerbread powder apple pie brownie gummi bears. Candy jelly beans liquorice pie chocolate toffee sweet. Jelly lollipop chocolate dragée cake chocolate bar sesame snaps sweet roll.</p>
+                <p>Bear claw sweet marshmallow jelly beans wafer muffin lemon drops danish. Jelly beans danish sweet gummi bears croissant sweet roll fruitcake cake toffee. Donut candy wafer liquorice tiramisu jelly beans chocolate bar chupa chups. Jelly-o liquorice candy gingerbread powder apple pie brownie gummi bears. Candy jelly beans liquorice pie chocolate toffee sweet. Jelly lollipop chocolate dragée cake chocolate bar sesame snaps sweet roll.</p>
+            </span>
+            <span>
+                <img src="../../images/about/daria.png" alt="daria">
+                <h3>Daria Marchashov</h3>
+                <p>Chupa chups cookie tart danish dragée gummies lemon drops. Donut sesame snaps apple pie chocolate bar lemon drops. Tiramisu wafer gummi bears chocolate cake topping tootsie roll shortbread gummies sesame snaps. Chupa chups dessert shortbread sugar plum gummies. Biscuit cookie topping jujubes candy biscuit icing pastry. Soufflé oat cake caramels jelly oat cake caramels macaroon bonbon oat cake. Chocolate bar cake chocolate gummies pastry.</p>
+                <p>Chupa chups cookie tart danish dragée gummies lemon drops. Donut sesame snaps apple pie chocolate bar lemon drops. Tiramisu wafer gummi bears chocolate cake topping tootsie roll shortbread gummies sesame snaps. Chupa chups dessert shortbread sugar plum gummies. Biscuit cookie topping jujubes candy biscuit icing pastry. Soufflé oat cake caramels jelly oat cake caramels macaroon bonbon oat cake. Chocolate bar cake chocolate gummies pastry.</p>
+            </span>
+        </span>
 
     </section>
 `,

@@ -1,0 +1,12 @@
+.footer-wrap{
+    max-height: 100vh;
+}
+
+.main-app-footer{
+    margin-top: auto;
+    width: 100%;
+    background-color: rgb(23, 26, 33);
+    color: #EDF2FB;
+    text-align: center;
+    border-top: 25px;
+}
