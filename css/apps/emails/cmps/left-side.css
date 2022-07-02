@@ -83,3 +83,7 @@
 .email-inputs textarea{
     height: 300px;
 }
+
+.compose-email{
+    background-color: white;
+}

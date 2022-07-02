@@ -3,34 +3,73 @@
 @import 'selected-book style.css';
 @import 'add-book-style.css';
 
-/* * {
-    box-sizing: border-box;
-}
 
-html{
+
+html {
     color: var(--txt-c);
     background-color: var(--lb);
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
+.books-conteiner {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
 }
 
-body{
-    margin:0;
-} */
+.book-preview-container {
+    padding: 10px;
+    margin: 10px 30px;
+    width: 200px;
+    background-color: rgb(162, 179, 196);
+    justify-content: space-between;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
-.books-container, .selected-book{
+.book-preview {
+    margin: 0 auto;
+}
+
+.book-preview-container:hover {
+    background-color: rgba(162, 179, 196, 0.7);
+}
+
+.books-container,
+.selected-book {
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-.book-pre-c{
-    margin: 10px;
+.book-filter {
+    max-width: 100%;
+    background-color: rgb(184, 190, 196);
+    padding: 15px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.user-msg{
+.book-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    justify-content: center;
+    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    text-shadow: #e0e0e0 1px 1px 0, 5px -3px 3px rgba(0, 31, 206, 0.13);
+    font-size: 40px;
+    color: rgb(45, 45, 83);
+    text-align: center;
+}
+
+.user-msg {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
@@ -41,8 +80,8 @@ body{
     justify-content: flex-end;
 }
 
-.user-msg p{
-    margin:10px;
+.user-msg p {
+    margin: 10px;
     padding: 10px;
     border: double var(--lp) 5px;
     background-color: var(--mp);

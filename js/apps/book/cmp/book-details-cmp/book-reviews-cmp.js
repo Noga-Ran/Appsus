@@ -5,9 +5,9 @@ import { eventBus } from '../../../../services/eventBus-service.js';
 export default {
     template: `
     <div class="reviews-body">
-        <h1>Reviews:</h1>
-        <button v-model="show" @click="show=toggleModal" v-if="!show && !add">Show Reviews</button>
-        <button v-model="add" @click="add=true" @click="show=null" v-if="!add && !show">Add Review</button>
+        <h3>Reviews:</h3>
+        <button v-model="show" class="review-btn1" @click="show=toggleModal" v-if="!show && !add">Show Reviews</button>
+        <button v-model="add" class="review-btn2" @click="add=true" @click="show=null" v-if="!add && !show">Add Review</button>
         <form class="reviews-container" v-if="add">
         <label for="rate">Rate:</label>
         <select id="rate" v-model="rate">
@@ -17,8 +17,8 @@ export default {
         <input v-model="date" type="date" id="date-read" value="2022-06-22" min="1918-01-01" @change="print" :max="dateNow">
         Name:<input v-model="userName" class="r-name" :class="{redBorder:msg}" type="text"/>
         Enter Review: <textarea v-model="review" class="r-body" :class="{redBorder:msg}"></textarea>
-        <input type="submit" value="Send" @click="saveR"/>
-        <button @click="add=null">Cancel</button>
+        <input type="submit" value="Send" class="review-btn1" @click="saveR"/>
+        <button @click="add=null" class="review-btn1">Cancel</button>
     </form>
         <r-modal @close="toggleModal" v-if="show"/>
 

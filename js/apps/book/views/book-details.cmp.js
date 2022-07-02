@@ -6,9 +6,15 @@ export default {
     template: `
         <!-- <button @click="$emit('close')" class="back-button">Go Back</button> -->
         <section v-if="book" class="book-details">
+          <div class="sale" v-if="isOnSale">
+            <p>the book is on sale!</p>
+          </div>
+          <div class="next-back-btns">
           <router-link to="/books" class="back-button">Go Back</router-link>
-          <router-link :to="'/books/' + nextBookId">Next Book</router-link>
+          <router-link :to="'/books/' + nextBookId" class="next-button">Next Book</router-link>
+          </div>
           <h4>Book Details</h4>
+          <img v-bind:src="ImgUrl">
           <p>ID: {{book.id}}</p>
           <p>Title: {{book.title}}</p>
           <p>Subtitle: {{book.subtitle}}</p>
@@ -19,10 +25,6 @@ export default {
           <p>Categories: {{categories}}</p>
           <p>Language: {{book.language}}</p>
           <p :class="{red: isRed,green: isGreen}">Price: {{book.listPrice.amount}}{{currency}}</p>
-          <div class="sale" v-if="isOnSale">
-            <p>the book is on sale!</p>
-          </div>
-          <img v-bind:src="ImgUrl">
         </section>
         <book-reviews class="marginB"/>
           `,
