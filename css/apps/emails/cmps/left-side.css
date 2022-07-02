@@ -1,11 +1,10 @@
 .compose-email {
-    position: absolute;
+   position: absolute;
     right: 0;
     bottom: 0;
     width: 600px;
     height: 600px;
     box-shadow: 2px 2px 2px 2px rgb(153, 149, 149);
-    background-color: white;
 }
 
 .side-nav .email-compose {
@@ -77,10 +76,14 @@
     cursor: pointer;
 }
 
-.email-inputs {
+.email-inputs{
     margin-left: 10px;
 }
 
-.email-inputs textarea {
+.email-inputs textarea{
     height: 300px;
+}
+
+.compose-email{
+    background-color: white;
 }
