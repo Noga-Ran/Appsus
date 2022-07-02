@@ -1,7 +1,7 @@
 export default {
     template: `
         <section class="input-email-search">
-            <input type="search"  v-model="filterBy" @input="search">
+            <input type="search" class="email-search" v-model="filterBy" @input="search" placeholder="Search">
             <label>
                 Date
                 <input type="radio" v-model="sortBy.date" >

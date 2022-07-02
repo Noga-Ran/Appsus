@@ -15,12 +15,13 @@
 }
 
 .email-preview .sent-at {
-    position: absolute;
+    position: fixed;
     right: 0.5rem;
 }
 
 .email-preview .email-to {
-    flex-basis: 15%;
+    position: relative;
+    flex-basis: 10%;
 }
 
 .email-container {
@@ -36,12 +37,31 @@ textarea {
     border: none;
 }
 
-.email-preview .short-body {
-    margin-left: 100px;
+.short-body {
+    position: fixed;
+    left: 40rem;
 }
 
 .input-email-search {
     margin-top: 15px;
     text-align: center;
     margin-bottom: 15px;
+}
+
+.email-search {
+    width: 25rem;
+    padding: 0.7rem;
+    background-color: white;
+    border-radius: 9px;
+    border: none;
+    outline: none;
+    color: rgb(15, 14, 14);
+    font-size: 1rem;
+}
+.delete-email{
+    position: fixed;
+    right: 0.5rem;
+    border: none;
+    display: flex;
+    justify-items: end;
 }
