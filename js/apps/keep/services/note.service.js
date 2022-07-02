@@ -74,31 +74,61 @@ function getNotes(){
             type: "note-txt",
             isPinned: true,
             info: {
-                txt: "Fullstack Me Baby!",
-                title: "no title"
-            }
+                txt: "000-0000000",
+                title: "Maia's phone"
+            },
+            style: {
+                backgroundColor: "rgb(144, 238, 144)"
+            },
+
         },
         {
             id: "n102",
             type: "note-img",
+            isPinned: false,
             info: {
-                url: "./https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+                url: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
                 title: "Bobi and Me"
             },
             style: {
-                backgroundColor: "#00d"
+                backgroundColor: "#ffc0cb"
             }
         },
         {
             id: "n103",
             type: "note-todos",
+            isPinned: false,
             info: {
                 label: "Get my stuff together",
                 todos: [
                     { txt: "Driving liscence", doneAt: null },
-                    { txt: "Coding power", doneAt: 187111111 }
+                    { txt: "Coding power", doneAt: 187111111 },
+                    {txt: "clean my room", doneAt: null},
                 ],
                 title: 'my todos'
+            }
+        },
+        {
+            id: "n104",
+            type: "note-video",
+            isPinned: true,
+            info: {
+                label: "study",
+                vUrl: "https://www.youtube.com/embed/5qap5aO4i9A",
+                title: 'studing'
+            }
+        },
+        {
+            id: "n105",
+            type: "note-video",
+            isPinned: false,
+            info: {
+                label: "Get my stuff together",
+                vUrl: "https://www.youtube.com/embed/nhBVL41-_Cw",
+                title: 'what is vue?'
+            },
+            style: {
+                backgroundColor: "#dda0dd"
             }
         }
     ];
