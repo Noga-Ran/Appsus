@@ -3,6 +3,7 @@
     padding: 0.7rem;
     cursor: pointer;
     position: relative;
+
 }
 
 .email-preview:hover {
@@ -24,11 +25,9 @@
 }
 
 .email-container {
-    display: flex;
     flex-basis: 100%;
     margin-left: 50px;
     background-color: #EDF2FB;
-    /* align-items: center; */
 }
 
 textarea {
@@ -65,5 +64,6 @@ textarea {
     border: none;
     display: flex;
     justify-items: end;
+    display: flex;
     align-items: center;
 }
