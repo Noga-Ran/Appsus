@@ -88,7 +88,7 @@ function getNotes(){
             isPinned: false,
             info: {
                 url: "https://freepngimg.com/thumb/dog/6-dog-png-image.png",
-                title: "Bobi and Me"
+                title: "Doron's Puppy"
             },
             style: {
                 backgroundColor: "#ffc0cb"
