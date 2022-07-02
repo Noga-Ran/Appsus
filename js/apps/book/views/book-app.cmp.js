@@ -7,6 +7,7 @@ import addBook from '../cmp/add-book-cmp.js';
 
 export default {
     template: `
+    <h1>Miss Books</h1>
     <div class="books-container" v-if="!selectedBook">
       <add-book @bookChosen="addChosenBook"/>
     <book-filter @filtered="filterBook" @changed="changeOptions" :filters="sendFilters"/>
