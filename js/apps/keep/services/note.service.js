@@ -109,19 +109,3 @@ function getNotes(){
 function addNewNote(note){
     storageService.post(KEEP_NOTE_KEY,note)
 }
-// function saveToStorage(book,r){
-//   if(book.reviews) book.reviews.push(r) 
-//   else {
-//     book.reviews = []
-//     book.reviews.push(r)
-//   }
-//   storageService.put(BOOKS_KEY,book)
-// }
-
-// function getNextBookId(bookId) {
-//   return storageService.query(BOOKS_KEY)
-//       .then(books => {
-//           const idx = books.findIndex(book => book.id === bookId)
-//           return (idx < books.length-1)? books[idx + 1].id : books[0].id
-//       })
-// }
