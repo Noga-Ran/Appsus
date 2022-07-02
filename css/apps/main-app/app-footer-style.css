@@ -10,3 +10,11 @@
     text-align: center;
     border-top: 25px;
 }
+
+.main-app-footer p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    margin-bottom: 0;
+}

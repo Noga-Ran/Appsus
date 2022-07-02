@@ -4,7 +4,10 @@ export default {
     <section class="home-page">
       <div class="home-desc">
         <h1>Meet Appsus</h1>
-        <p>This new and game-changer app is Cupcake ipsum dolor sit amet wafer brownie cupcake jelly. Dragée jujubes tiramisu gummi bears cotton candy tiramisu pudding. Caramels donut donut halvah tiramisu bonbon tiramisu donut.</p>
+        <p>This new and game-changer app is Cupcake ipsum dolor sit amet wafer brownie cupcake jelly.
+          Dragée jujubes tiramisu gummi bears cotton candy tiramisu pudding. Caramels donut donut halvah tiramisu bonbon tiramisu donut.
+        This new and game-changer app is Cupcake ipsum dolor sit amet wafer brownie cupcake jelly.
+        Dragée jujubes tiramisu gummi bears cotton candy tiramisu pudding. Caramels donut donut halvah tiramisu bonbon tiramisu donut.</p>
 
         <img src="../../images/main-page/devices.png" alt="devices">
       </div>

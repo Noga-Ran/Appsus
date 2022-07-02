@@ -9,15 +9,16 @@
         margin-right: 1em;
     }
 
-    .main-about span span:first-of-type{
+    .about-team-container:first-of-type{
         border-bottom: #E2EAFC80 1px solid;
         padding-bottom: 1em;
         margin-bottom: 1em;
     }
-
-    .main-about span span:last-of-type{
+    
+    .about-team-container:last-of-type{
         margin-bottom: 1em;
     }
+
 }
 
 @media only screen and (min-width: 770px) {
@@ -56,22 +57,41 @@
     align-items: center;
 }
 
-.main-about span span img {
+.about-team-img {
     border-radius: 30%;
     outline: 2px solid #E2EAFC80;
     width: 90%;
     max-width: 20em;
 }
 
-.main-about span span p{
+.about-team-container p{
     line-height: 1.5em;
     margin-bottom: 1em;
+    width: 90%;
 }
 
-.main-about span span p:first-of-type{
+.main-about span span p >:first-of-type{
     margin-bottom: 0;
 }
 
-.main-about span span *{
-    margin: 1em;
+.about-contacts p{
+    margin: 1.5em;
+}
+
+.about-contacts {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.about-contacts div{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.about-contacts img{
+    width: 5vw;
 }
