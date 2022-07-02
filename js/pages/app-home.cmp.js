@@ -24,7 +24,7 @@ export default {
           </span>
           <span @click="goToMail" class="start">
             <p>Mister Mail</p>
-            <img src="https://github.com/Noga-Ran/Appsus/blob/main/images/main-page/envelope-solid.svg" alt="">
+            <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/91a1ce292a119b8b31498b62c64bac9256f5faae/images/main-page/envelope-solid.svg" alt="">
           </span>
           <span @click="goToBooks" class="start">
             <p>Miss Books</p>
