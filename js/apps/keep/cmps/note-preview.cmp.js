@@ -9,7 +9,7 @@ export default {
             <iframe v-if="getVUrl()" :src='getVUrl()'></iframe>
             <ul v-if="getsTodos()" v-for="todo in getsTodos()">
                 <li>
-                    <span> 
+                    <span class="keep-span-todo"> 
                         <button title="delete todo" v-on:click="deleteTodo(todo,note)">🗙</button>
                         <p @click="toggleToDo(todo,note)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
                     </span>
