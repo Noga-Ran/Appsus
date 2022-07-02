@@ -1,36 +1,38 @@
-.marginB{
+.marginB {
     margin-bottom: 50px;
 }
 
 
-.reviews-body{
+.reviews-body {
     margin-top: 10px;
+    margin-left: 35px;
 }
 
-.reviews-container{
+.reviews-container {
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     width: 50%;
 }
 
-.reviews-container input, textarea{
+.reviews-container input,
+textarea {
     margin-bottom: 10px;
 }
 
-textarea.r-body{
+textarea.r-body {
     width: 100%;
     height: 100px;
     resize: vertical;
     overflow-x: scroll;
 }
 
-.redBorder{
+.redBorder {
     border-color: red;
 }
 
 .user-reviews {
-    background-color:rgba(108, 108, 108, 0.807);
+    background-color: rgba(108, 108, 108, 0.807);
     position: absolute;
     text-align: center;
     top: 0;
@@ -40,7 +42,7 @@ textarea.r-body{
     right: 0;
 }
 
-.user-reviews button{
+.user-reviews button {
     align-self: baseline;
     margin: 5px;
     background: none;
@@ -50,14 +52,17 @@ textarea.r-body{
     cursor: pointer;
 }
 
-.user-reviews > div{
+.user-reviews>div {
     border: 1px black solid;
     background-color: thistle;
     width: 70%;
     height: 50%;
     margin: auto;
-    position:absolute;
-    top: 0; bottom: 0; left: 0; right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     overflow-y: scroll;
     overflow-x: hidden;
     display: flex;
@@ -66,24 +71,43 @@ textarea.r-body{
     align-items: center;
 }
 
-.user-reviews div > div{
+.user-reviews div>div {
     width: 100%;
 }
 
-.break-word{
+.break-word {
     word-wrap: break-word;
     width: 65%;
 }
-.name-v{
+
+.name-v {
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.name-v:first-of-type{
+.name-v:first-of-type {
     border-top: 1px lightcyan dotted;
 }
 
-.rv{
+.rv {
     padding-bottom: 15px;
     border-bottom: 1px lightcyan dotted;
+}
+
+.review-btn1,
+.review-btn2 {
+    background-color: white;
+    border: 1px solid rgb(45, 45, 83);
+    color: rgb(45, 45, 83);
+    font-weight: bold;
+    padding: 10px;
+    width: 120px;
+}
+
+.review-btn1 {
+    margin-right: 20px;
+}
+
+.review-btn2 {
+    margin-left: 20px;
 }

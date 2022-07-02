@@ -1,4 +1,4 @@
-.book-list ul{
+.book-list ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-template-rows: repeat(auto-fit, 1fr);
@@ -7,7 +7,7 @@
     padding: 5px
 }
 
-.book-preview-container{
+.book-preview-container {
     padding: 10px;
     list-style: none;
     outline: 1px black solid;
@@ -18,13 +18,12 @@
     justify-content: space-between;
 }
 
-.book-preview-container *{
-    padding-bottom: 5px;
+.book-preview-container * {
     display: flex;
     flex-direction: column;
 }
 
-.actions{
+.actions {
     margin: 0;
     margin-top: 10px;
     padding: 0;
@@ -33,17 +32,17 @@
     justify-content: space-between;
 }
 
-.actions *{
-    color: darkred;
+.actions * {
     border: none;
     border-radius: 5px;
     padding: 5px;
     background: none;
     background-color: var(--mb);
+    text-decoration: none;
 }
 
-.actions *:hover{
+.actions *:hover {
     cursor: pointer;
-    color: var(--mb);
-    background-color:darkred;
+    color: rgb(45, 45, 83);
+    background-color: white;
 }
