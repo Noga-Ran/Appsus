@@ -15,7 +15,6 @@
     border-radius: 35px;
     padding: 0.6rem;
     margin-block-end: 1rem;
-    margin-top: 1.8rem;
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -29,6 +28,7 @@
     font-size: 14px;
     text-align: left;
     margin-left: 10px;
+    flex-direction: column;
 }
 
 .email-nav-btn:hover {

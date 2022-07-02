@@ -36,6 +36,12 @@ textarea {
     border: none;
 }
 
-.email-preview .short-body{
+.email-preview .short-body {
     margin-left: 100px;
+}
+
+.input-email-search {
+    margin-top: 15px;
+    text-align: center;
+    margin-bottom: 15px;
 }
