@@ -2,6 +2,7 @@ export default {
     template: `
         <form class="compose-email">
             <h3 class="new-msg">New Message</h3>
+            <div class="email-inputs">
             <p>
                 <span>From</span>
                 <span>{{user}}</span>
@@ -17,7 +18,8 @@ export default {
             <p>
                 <textarea v-model="newEmail.body"></textarea>
             </p>
-            <button @click.prevent="send">Send</button>
+            <button class="email-btn-send" @click.prevent="send">Send</button>
+        </div>
         </form>
     `,
 

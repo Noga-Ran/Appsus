@@ -2,8 +2,8 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 700px;
-    height: 700px;
+    width: 600px;
+    height: 600px;
     box-shadow: 2px 2px 2px 2px rgb(153, 149, 149);
 }
 
@@ -23,7 +23,7 @@
 
 .email-nav-btn {
     border: none;
-    background-color: white;
+    background-color: #EDF2FB;
     padding: 0.4rem;
     cursor: pointer;
     font-size: 14px;
@@ -37,7 +37,8 @@
     color: rgb(189, 16, 16);
     font-weight: bold;
 }
-.new-msg{
+
+.new-msg {
     background-color: rgba(12, 12, 12, 0.8);
     color: white;
     margin: 0;
@@ -46,12 +47,39 @@
     align-items: center;
 }
 
-input{
-    border:none ;
+input {
+    border: none;
     border-bottom: 1px solid rgb(197, 189, 189);
     flex-basis: 100%;
 }
+
 .email-prev-actions {
     padding: 1px;
 }
 
+.email-btn-send {
+    background: #2b7bf1;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    border: none;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 10px 20px 10px 20px;
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+.email-btn-send:hover {
+    background: #3cb0fd;
+    cursor: pointer;
+}
+
+.email-inputs{
+    margin-left: 10px;
+}
+
+textarea{
+    height: 300px;
+}
