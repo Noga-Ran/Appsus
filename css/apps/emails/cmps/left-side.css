@@ -1,5 +1,5 @@
 .compose-email {
-   position: absolute;
+    position: absolute;
     right: 0;
     bottom: 0;
     width: 600px;
@@ -21,6 +21,7 @@
 }
 
 .email-nav-btn {
+    display: flex;
     border: none;
     background-color: #EDF2FB;
     padding: 0.4rem;
@@ -76,14 +77,14 @@
     cursor: pointer;
 }
 
-.email-inputs{
+.email-inputs {
     margin-left: 10px;
 }
 
-.email-inputs textarea{
+.email-inputs textarea {
     height: 300px;
 }
 
-.compose-email{
+.compose-email {
     background-color: white;
 }
