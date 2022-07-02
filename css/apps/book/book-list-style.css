@@ -46,3 +46,10 @@
     color: rgb(45, 45, 83);
     background-color: white;
 }
+
+.book-search-btn{
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: rgb(45, 45, 83);
+}

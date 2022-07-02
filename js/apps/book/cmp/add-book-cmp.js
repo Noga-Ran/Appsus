@@ -5,8 +5,8 @@ import { bookService } from "../service/books-service.js";
 export default {
     template: `
     <div class="add-book-container">
-        <input v-model="search" type="text" id="book-search" placeholder="search book">
-        <button @click.prevent="searchBook">search</button>
+        <input v-model="search"  type="text" id="book-search" placeholder="Search a book...">
+        <button @click.prevent="searchBook" class ="book-search-btn">Search</button>
         
         <ul v-if="lengthOps" v-for="book in booksOptions" :key="book.id">
             <li >{{book.volumeInfo.title}}</li>
@@ -14,38 +14,38 @@ export default {
         </ul>
     </div>
   `,
-  components: {
-    bookService,
-  },
+    components: {
+        bookService,
+    },
     data() {
-      return {
-            search:null,
-            booksOptions:null,
+        return {
+            search: null,
+            booksOptions: null,
             lengthOps: null,
         }
     },
     methods: {
-        searchBook(){
+        searchBook() {
             console.log(this.search);
             bookService.getGoogleBook(this.search)
-            .then(list => this.booksOptions = list.data).
-            then(this.setList)
+                .then(list => this.booksOptions = list.data).
+                then(this.setList)
         },
-        setList(){
+        setList() {
             this.booksOptions = this.booksOptions.items
             this.lengthOps = this.booksOptions.length
         },
-        sendToParent(book){
+        sendToParent(book) {
             this.search = null,
-            this.booksOptions = null,
-            this.lengthOps = null
-            this.$emit('bookChosen',book)
+                this.booksOptions = null,
+                this.lengthOps = null
+            this.$emit('bookChosen', book)
         }
 
     },
     computed: {},
-  };
-  
+};
+
 //  id: book.id
 //  title: book.volumeInfo.title
 //  subtitle: book.volumeInfo.subtitle
@@ -59,5 +59,5 @@ export default {
 //  listPrice: {
 //   amount: ,
 //   currencyCode: ,
-//     isOnSale: 
+//     isOnSale:
 //  }
