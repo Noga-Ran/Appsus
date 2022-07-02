@@ -5,6 +5,7 @@
     width: 600px;
     height: 600px;
     box-shadow: 2px 2px 2px 2px rgb(153, 149, 149);
+    background-color: white;
 }
 
 .side-nav .email-compose {
@@ -83,8 +84,4 @@
 
 .email-inputs textarea {
     height: 300px;
-}
-
-.compose-email {
-    background-color: white;
 }

@@ -25,6 +25,7 @@
 }
 
 .email-container {
+    display: flex;
     flex-basis: 100%;
     margin-left: 50px;
     background-color: #EDF2FB;
@@ -66,4 +67,5 @@ textarea {
     justify-items: end;
     display: flex;
     align-items: center;
+    line-height: 2;
 }
