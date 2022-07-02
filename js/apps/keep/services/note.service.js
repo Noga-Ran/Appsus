@@ -82,7 +82,7 @@ function getNotes(){
             id: "n102",
             type: "note-img",
             info: {
-                url: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
+                url: "./https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
                 title: "Bobi and Me"
             },
             style: {
@@ -109,19 +109,3 @@ function getNotes(){
 function addNewNote(note){
     storageService.post(KEEP_NOTE_KEY,note)
 }
-// function saveToStorage(book,r){
-//   if(book.reviews) book.reviews.push(r) 
-//   else {
-//     book.reviews = []
-//     book.reviews.push(r)
-//   }
-//   storageService.put(BOOKS_KEY,book)
-// }
-
-// function getNextBookId(bookId) {
-//   return storageService.query(BOOKS_KEY)
-//       .then(books => {
-//           const idx = books.findIndex(book => book.id === bookId)
-//           return (idx < books.length-1)? books[idx + 1].id : books[0].id
-//       })
-// }

@@ -3,8 +3,8 @@ export default {
     props: ["book"],
     template: `
     <img :src="book.thumbnail">
-    <p>Title: {{book.title}}</p>
-    <p>price: {{book.listPrice.amount}}{{currency}}</p>
+    <p>{{book.title}}</p>
+    <p>{{book.listPrice.amount}}{{currency}}</p>
   `,
     data() {
       return {

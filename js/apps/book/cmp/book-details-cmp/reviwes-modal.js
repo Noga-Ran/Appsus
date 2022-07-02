@@ -20,18 +20,11 @@ export default {
       return {
             id:this.$route.params.bookId,
             book: null,
-            // deletedId: null
         }
     },
     methods: {
         close(){
             this.$emit("close")
-        },
-        delete(r){
-            console.log('hello',r);
-            // console.log(deletedId);
-            //this.$emit('delete')
-            return r
         },
     },
     created(){
