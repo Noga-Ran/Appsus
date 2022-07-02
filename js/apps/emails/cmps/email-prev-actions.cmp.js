@@ -2,7 +2,7 @@ export default {
     template: `
         <section class="email-prev-actions">
             <button class="delete-email" @click.stop="select">
-                <!-- <i class="fa-solid fa-trash"></i> -->
+                <i class="fa-solid fa-trash"></i>
             </button>
         </section>
     `,
