@@ -91,10 +91,17 @@ export default {
         getDateDisplay(timeStamp){
             var newDate = new Date(timeStamp)
 
-            var month = newDate.getUTCMonth() + 1; //months from 1-12
-            var day = newDate.getUTCDate();
-            var year = newDate.getUTCFullYear();
-            newDate = year + "/" + month + "/" + day;
+            var month = newDate.getUTCMonth() + 1
+            if (+month<10) month = '0'+month
+            var day = newDate.getUTCDate()
+            if (+day<10) day = '0'+day
+            var year = newDate.getUTCFullYear()
+            var hours = newDate.getHours()
+            if (+hours<10) hours = '0'+hours
+            var mins = newDate.getMinutes()
+            if (+mins<10) mins = '0'+mins
+
+            newDate = `${day}/${month}/${year} ${hours}:${mins}`
 
             return newDate
         },

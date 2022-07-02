@@ -7,8 +7,12 @@ export default {
                 <button title="close" class="keep-modal-cancel-btn" v-on:click="saveNote(false)">🗙</button>
                 <h3>Edit Your Note</h3>
                 <input v-model="noteTitle" placeholder="enter note title">
-                <textarea v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg"></textarea>
-                <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg"  v-model="userInput" type="text"></textarea>
+                
+                <textarea v-if="!isEditTodo()" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg"></textarea>
+                <div v-else class="keep-add-todo-container">
+                    <textarea v-on:keyup.enter="addTodo" placeholder="press enter to add todo" type="text" v-model="userInput" ref="todoInpt"></textarea>
+                    <button @click="addTodo">enter</button>
+                </div>
                 <span>
                     <button title="change note color" class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
                     <button title="save note" class="keep-cls-modal-save-btn" v-on:click="saveNote">💾</button>
@@ -29,16 +33,30 @@ export default {
   },
     data() {
       return {
-            userInput: null,
+            userInput: this.getNoteInfo(),
             isEdit: true,
             placeHolderMsg: 'edit note',
             newDetails: null,
             noteTitle: this.noteEdit.info.title,
             openPallete: false,
             noteBgColor: this.setBg(),
+            isTodo: false,
+            todosList: []
         }
     },
     methods: {
+        getNoteInfo(){
+            if(this.noteEdit.type==='note-txt') this.userInput = this.noteEdit.info.txt
+            else if(this.noteEdit.type==='note-img')  this.userInput =  this.noteEdit.info.url
+            else if(this.noteEdit.type==='note-video') this.userInput = this.noteEdit.info.vUrl
+            else {
+                this.isTodo = true
+                this.userInput = ''
+            }
+
+            
+            return this.userInput
+        },
         saveNote(isSave=true){
 
             this.isEdit = false
@@ -47,12 +65,13 @@ export default {
                     title:this.noteTitle,
                     style:{backgroundColor:this.noteBgColor},
                     newInput: this.userInput
-                }
+            }
 
             this.userInput = ''
             this.noteTitle = ''
             this.noteBgColor = '#F7F0F5'
             this.openPallete = false
+            this.isTodo =false
             if(isSave) this.updateNote()
             else this.$emit('noSave')
         },
@@ -67,7 +86,9 @@ export default {
             if(noteType==='note-txt') this.noteEdit.info.txt = this.newDetails.newInput
             else if(noteType==='note-img') this.noteEdit.info.url = this.newDetails.newInput
             else if(noteType==='note-video') this.noteEdit.info.vUrl = this.newDetails.newInput
-            else this.noteEdit.info.todo = this.newDetails.newInput
+            else this.noteEdit.info.todos = this.todosList
+
+            this.todoList = null
             
             this.$emit('saveEdit',this.noteEdit)
         },
@@ -78,15 +99,17 @@ export default {
             }
             return '#F7F0F5'
         },
+        addTodo(){
+            this.todosList.push({txt:this.userInput})
+            this.$refs['todoInpt'].value = '';
+            this.userInput = null
+        },
+        isEditTodo(){
+            if(this.noteEdit.type==='note-todos') return true
+            return false
+        },
     },
     created(){
-        if(this.noteEdit.noteType==='note-txt') {
-            console.log(this.noteEdit.info.txt);
-            this.noteInfo = this.noteEdit.info.txt
-        }
-        else if(this.noteEdit.noteType==='note-img')  this.noteInfo =  this.noteEdit.info.url
-        else if(this.noteEdit.noteType==='note-video') this.noteInfo = this.noteEdit.info.vUrl
-        else this.noteInfo = this.noteEdit.info.todos
     },
     computed: {},
   };
