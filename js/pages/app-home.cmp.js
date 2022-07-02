@@ -23,8 +23,12 @@ export default {
             <img src="../../images/main-page/map-pin-solid.svg" alt="">
           </span>
           <span @click="goToMail" class="start">
-            <p>Mail</p>
+            <p>Mister Mail</p>
             <img src="../../images/main-page/envelope-solid.svg" alt="">
+          </span>
+          <span @click="goToBooks" class="start">
+            <p>Miss Books</p>
+            <img src="../../images/main-page/book-solid.svg" alt="">
           </span>
         </div>
       </div>
@@ -39,6 +43,9 @@ export default {
         },
         goToMail() {
           this.$router.push('/email')
+      },
+      goToBooks() {
+        this.$router.push('/books')
       },
     },
 }

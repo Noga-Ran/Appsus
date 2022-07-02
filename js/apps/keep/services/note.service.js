@@ -9,22 +9,15 @@ export const noteService = {
     remove,
     get,
     updateTodo,
+    deleteTodo,
     addNewNote,
     updateNote,
-    // saveReview,
-    // getGoogleBook,
-    // getNextBookId,
-};
+}
   
 function query() {
   return storageService.query(KEEP_NOTE_KEY)
 }
 
-// function getGoogleBook(googleBook){
-//   const GOOGLE_BOOKS='https://www.googleapis.com/books/v1/volumes?printType=books&q='
-//   var bookList =  axios.get(`${GOOGLE_BOOKS}+${googleBook}`)
-//   return bookList
-// }
 
 function updateNote(note){
     storageService.put(KEEP_NOTE_KEY, note)
@@ -35,6 +28,19 @@ function updateTodo(note, todoUpdate){
     note.info.todos[index] = todoUpdate
 
     storageService.put(KEEP_NOTE_KEY, note)
+}
+
+function deleteTodo(note,deleteTodo) {
+    
+    let index = deleteTodo.index
+    note.info.todos.splice(index,1)
+
+    for(var i=0; i<note.info.todos.length; i++){
+        note.info.todos[i].index = i
+    }
+
+    updateNote(note)
+
 }
 
 
@@ -68,14 +74,15 @@ function getNotes(){
             type: "note-txt",
             isPinned: true,
             info: {
-                txt: "Fullstack Me Baby!"
+                txt: "Fullstack Me Baby!",
+                title: "no title"
             }
         },
         {
             id: "n102",
             type: "note-img",
             info: {
-                url: "http://some-img/me",
+                url: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
                 title: "Bobi and Me"
             },
             style: {
@@ -90,7 +97,8 @@ function getNotes(){
                 todos: [
                     { txt: "Driving liscence", doneAt: null },
                     { txt: "Coding power", doneAt: 187111111 }
-                ]
+                ],
+                title: 'my todos'
             }
         }
     ];

@@ -8,7 +8,7 @@ export default {
                 <h3>Edit Your Note</h3>
                 <input v-model="noteTitle" placeholder="enter note title">
                 <textarea v-if="!isToDo" type="text" v-model="userInput" v-bind:placeholder="placeHolderMsg"></textarea>
-                <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg" type="text" v-model="userInput"></textarea>
+                <textarea v-on:keyup.enter="addTodo" v-else v-bind:placeholder="placeHolderMsg"  v-model="userInput" type="text"></textarea>
                 <span>
                     <button title="change note color" class="keep-color-pallete-btn" v-on:click="openPallete=!openPallete">🎨</button>
                     <button title="save note" class="keep-cls-modal-save-btn" v-on:click="saveNote">💾</button>
@@ -29,7 +29,7 @@ export default {
   },
     data() {
       return {
-            userInput: this.noteEdit.info.txt,
+            userInput: null,
             isEdit: true,
             placeHolderMsg: 'edit note',
             newDetails: null,
@@ -54,6 +54,7 @@ export default {
             this.noteBgColor = '#F7F0F5'
             this.openPallete = false
             if(isSave) this.updateNote()
+            else this.$emit('noSave')
         },
         updateNote(){
 
@@ -79,7 +80,13 @@ export default {
         },
     },
     created(){
-
+        if(this.noteEdit.noteType==='note-txt') {
+            console.log(this.noteEdit.info.txt);
+            this.noteInfo = this.noteEdit.info.txt
+        }
+        else if(this.noteEdit.noteType==='note-img')  this.noteInfo =  this.noteEdit.info.url
+        else if(this.noteEdit.noteType==='note-video') this.noteInfo = this.noteEdit.info.vUrl
+        else this.noteInfo = this.noteEdit.info.todos
     },
     computed: {},
   };

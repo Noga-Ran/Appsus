@@ -8,6 +8,7 @@ export default {
         <router-link to="/">Home</router-link>
         <router-link to="/email">Email</router-link>
         <router-link to="/keep">Keeps</router-link>
+        <router-link to="/books">books</router-link>
         <router-link to="/about">About</router-link>
       </nav>
       <p v-else @click="openModal=true" title="open menue">☰</p>
@@ -18,6 +19,7 @@ export default {
               <router-link to="/" @click="openModal=false">Home</router-link>
               <router-link to="/email" @click="openModal=false">Email</router-link>
               <router-link to="/keep" @click="openModal=false">Keeps</router-link>
+              <router-link to="/books" @click="openModal=false">books</router-link>
               <router-link to="/about" @click="openModal=false">About</router-link>
             </span>
           </div>

@@ -10,8 +10,8 @@ export default {
         <span class="keep-header"><img src="../../../../images/keep/logo.jpg"><h1 class="keep-header-color">miss keep</h1></span>
         <note-filter @filtered="filterNote"/>
         <add-note  @add="saveNewNote"/>
-        <note-list @remove="removeNote" @todo="saveToDo" @edit="sendToEdit" @togglePin="changeNotePin" :notes='notesToDisplay'/>
-        <edit-note v-if="noteToEdit" @saveEdit="updateNote" :noteEdit="noteToEdit"/>
+        <note-list @remove="removeNote" @todo="saveToDo" @delTodo="deletTodo" @edit="sendToEdit" @togglePin="changeNotePin" @dup="dupNote" :notes='notesToDisplay'/>
+        <edit-note v-if="noteToEdit" @saveEdit="updateNote" @noSave="noteToEdit=null" :noteEdit="noteToEdit"/>
     </div>
     `,
     components:{
@@ -33,6 +33,9 @@ export default {
     methods:{
         saveToDo(note,todo){
             noteService.updateTodo(note, todo)
+        },
+        deletTodo(note,todo){
+            noteService.deleteTodo(note, todo)
         },
         saveNewNote(newNote){
             noteService.addNewNote(newNote)
@@ -59,6 +62,11 @@ export default {
         changeNotePin(note){
             note.isPinned = !note.isPinned
             this.updateNote(note)
+        },
+        dupNote(note){
+            let noteCopy = JSON.parse(JSON.stringify(note))
+            noteCopy.id = Date.now()
+            this,this.saveNewNote(noteCopy)
         }
     },
     computed:{

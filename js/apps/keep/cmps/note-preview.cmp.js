@@ -9,7 +9,10 @@ export default {
             <iframe v-if="getVUrl()" :src='getVUrl()'></iframe>
             <ul v-if="getsTodos()" v-for="todo in getsTodos()">
                 <li>
-                    <p @click="toggleToDo(todo,note)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
+                    <span> 
+                        <button title="delete todo" v-on:click="deleteTodo(todo,note)">🗙</button>
+                        <p @click="toggleToDo(todo,note)" v-if="todo.txt" v-bind:style= "[todo.doneAt ? {'text-decoration': 'line-through'} : {'text-decoration': none}]">{{todo.txt}}</p>
+                    </span>
                     <p v-if="todo.doneAt">Done At: {{getDateDisplay(todo.doneAt)}}</p>
                 </li>
             </ul>
@@ -82,8 +85,18 @@ export default {
             }
             this.$emit('todoChange',note,todo)
         },
+        deleteTodo(todo,note){
+            this.$emit('todoDel',note,todo)
+        },
         getDateDisplay(timeStamp){
-            return new Date(timeStamp)
+            var newDate = new Date(timeStamp)
+
+            var month = newDate.getUTCMonth() + 1; //months from 1-12
+            var day = newDate.getUTCDate();
+            var year = newDate.getUTCFullYear();
+            newDate = year + "/" + month + "/" + day;
+
+            return newDate
         },
         getLables(){
             let labls = (this.note.info.label) ? this.note.info.label : false

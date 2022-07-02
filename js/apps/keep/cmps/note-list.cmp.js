@@ -8,10 +8,11 @@ export default {
        :class="{'keep-note-pin': note.isPinned, 'keep-note-not-pin': !note.isPinned}"
        :style="{backgroundColor: setBg(note)}">
 
-            <note-preview @todoChange="updateTodo" :note="note" @edit="editNote(note)"/>
+            <note-preview @todoChange="updateTodo" @todoDel="deleteTodo" :note="note" @edit="editNote(note)"/>
             <span class="keep-list-note-options">
                 <button title="delete" @click="remove(note.id)">🗑️</button>
                 <button title="edit" @click="editNote(note)">📝</button>
+                <button title="duplicae note" @click="dupNote(note)">📑</button>
                 <button :title="getTitle(note)" :class="{pinned: note.isPinned,'not-pinned': !note.isPinned}" @click="togglePin(note)">📌</button>
             </span>
 
@@ -32,11 +33,13 @@ export default {
 
             this.$emit('todo',note,todo)
         },
+        deleteTodo(note,todo){
+            this.$emit('delTodo',note,todo)
+        },
         remove(noteId) {
             this.$emit("remove", noteId);
         },
         editNote(note){
-            console.log('edit');
             this.$emit('edit',note);
         },
         togglePin(note){
@@ -50,12 +53,14 @@ export default {
             }
         },
         setBg(note){
-            console.log(note);
             if('style' in note){
                 if('backgroundColor' in note.style) return note.style.backgroundColor
             }
             return '#F7F0F5'
         },
+        dupNote(note){
+            this.$emit('dup',note);
+        }
     },
     computed: {
     },
