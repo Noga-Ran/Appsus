@@ -64,4 +64,5 @@ textarea {
     border: none;
     display: flex;
     justify-items: end;
+    margin-bottom: 10px;
 }
