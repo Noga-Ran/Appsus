@@ -2,7 +2,7 @@ export default {
   template: `
     <header class="main-app-header">
       <div class="main-app-logo">
-        <img src="../../images/appsus/appsus-logo.png" alt="AppSus">
+        <img src="https://github.com/Noga-Ran/Appsus/blob/main/images/appsus/appsus-logo.png?raw=true" alt="AppSus">
       </div>
       <nav v-if="windowWidth>430" class="main-app-nav-bar">
         <router-link to="/">Home</router-link>

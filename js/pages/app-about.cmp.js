@@ -13,9 +13,9 @@ export default {
                 <span class="about-contacts">
                     <p>Contant me on:</p>
                     <div>
-                        <img src="../../images/about/f.svg" alt="">
-                        <img src="../../images/about/g.svg" alt="">
-                        <img src="../../images/about/l.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/f.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/g.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/l.svg" alt="">
                     </div>
                 </span>
             </span>
@@ -28,9 +28,9 @@ export default {
                 <span class="about-contacts">
                     <p>Contant me on:</p>
                     <div>
-                        <img src="../../images/about/f.svg" alt="">
-                        <img src="../../images/about/g.svg" alt="">
-                        <img src="../../images/about/l.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/f.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/g.svg" alt="">
+                        <img src="https://raw.githubusercontent.com/Noga-Ran/Appsus/536f8c10d62d7056a97525a0e2ad9f87777216f2/images/about/l.svg" alt="">
                     </div>
                 </span>
             </span>
