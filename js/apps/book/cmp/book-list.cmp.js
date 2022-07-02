@@ -6,7 +6,7 @@ export default {
  <section class="book-list">
         <ul>
             <li v-for="(book) in books" :key="book.id" class="book-preview-container">
-                <book-preview :book="book"/>
+                <book-preview @select="select(book)" :book="book"/>
                 <div class="actions">
                     <button @click="remove(book.id)">X</button>
                     <router-link :to="'/books/'+book.id">Details</router-link>

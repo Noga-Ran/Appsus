@@ -2,9 +2,11 @@
 export default {
     props: ["book"],
     template: `
-    <img :src="book.thumbnail">
-    <p>{{book.title}}</p>
-    <p>{{book.listPrice.amount}}{{currency}}</p>
+    <span @click="this.$emit('select', book)">
+      <img :src="book.thumbnail">
+      <p>{{book.title}}</p>
+      <p>{{book.listPrice.amount}}{{currency}}</p>
+    </span>
   `,
     data() {
       return {

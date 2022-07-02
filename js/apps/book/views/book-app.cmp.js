@@ -69,8 +69,8 @@ export default {
         }
       },
       selectBook(book) {
-        this.selectedBook = book;
-        console.log(this.selectedBook);
+        this.$router.push(`/books/${book.id}`)
+        this.selectBook = book
       },
       removeBook(bookId){
         bookService.remove(bookId);
